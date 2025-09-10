@@ -4,7 +4,7 @@ class Program
     {
         Console.WriteLine("=== REKENING BANK ===");
 
-        BankAccount akun1 = new BankAccount("1", "Andi", 100_000);
+        BankAccount akun1 = new BankAccount("1", "Andi", 1000_000);
         akun1.Deposit(1000);
         akun1.Withdraw(99000);
         akun1.PajakTransaksi(5099);

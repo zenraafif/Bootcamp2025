@@ -1,0 +1,15 @@
+C:\Programming\Encapulation\obj\Debug\net9.0\Encapulation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\Encapulation\obj\Debug\net9.0\Encapulation.AssemblyInfoInputs.cache
+C:\Programming\Encapulation\obj\Debug\net9.0\Encapulation.AssemblyInfo.cs
+C:\Programming\Encapulation\obj\Debug\net9.0\Encapulation.csproj.CoreCompileInputs.cache
+C:\Programming\Encapulation\obj\Debug\net9.0\Encapulation.sourcelink.json
+C:\Programming\Encapulation\bin\Debug\net9.0\Encapulation.exe
+C:\Programming\Encapulation\bin\Debug\net9.0\Encapulation.deps.json
+C:\Programming\Encapulation\bin\Debug\net9.0\Encapulation.runtimeconfig.json
+C:\Programming\Encapulation\bin\Debug\net9.0\Encapulation.dll
+C:\Programming\Encapulation\bin\Debug\net9.0\Encapulation.pdb
+C:\Programming\Encapulation\obj\Debug\net9.0\Encapulation.dll
+C:\Programming\Encapulation\obj\Debug\net9.0\refint\Encapulation.dll
+C:\Programming\Encapulation\obj\Debug\net9.0\Encapulation.pdb
+C:\Programming\Encapulation\obj\Debug\net9.0\Encapulation.genruntimeconfig.cache
+C:\Programming\Encapulation\obj\Debug\net9.0\ref\Encapulation.dll
