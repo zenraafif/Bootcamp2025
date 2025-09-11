@@ -1,0 +1,15 @@
+C:\Programming\StackUndoRedo\bin\Debug\net9.0\StackUndoRedo.exe
+C:\Programming\StackUndoRedo\bin\Debug\net9.0\StackUndoRedo.deps.json
+C:\Programming\StackUndoRedo\bin\Debug\net9.0\StackUndoRedo.runtimeconfig.json
+C:\Programming\StackUndoRedo\bin\Debug\net9.0\StackUndoRedo.dll
+C:\Programming\StackUndoRedo\bin\Debug\net9.0\StackUndoRedo.pdb
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\StackUndoRedo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\StackUndoRedo.AssemblyInfoInputs.cache
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\StackUndoRedo.AssemblyInfo.cs
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\StackUndoRedo.csproj.CoreCompileInputs.cache
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\StackUndoRedo.sourcelink.json
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\StackUndoRedo.dll
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\refint\StackUndoRedo.dll
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\StackUndoRedo.pdb
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\StackUndoRedo.genruntimeconfig.cache
+C:\Programming\StackUndoRedo\obj\Debug\net9.0\ref\StackUndoRedo.dll

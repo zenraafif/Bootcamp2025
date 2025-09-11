@@ -2,7 +2,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("=== REKENING BANK ===");
+        Console.WriteLine("BANK LITTLE\n");
 
         BankAccount akun1 = new BankAccount("1", "Andi", 1000_000);
         akun1.Deposit(1000);
