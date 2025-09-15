@@ -14,7 +14,7 @@ class Kelinci : IAnimal
     }
     public void sleep()
     {
-        Console.WriteLine("2 jam tidur");
+        Console.WriteLine("Kelinci 2 jam tidur");
     }
 }
 class Kucing : IAnimal
@@ -25,7 +25,7 @@ class Kucing : IAnimal
     }
     public void sleep()
     {
-        Console.WriteLine("8 jam tidur");
+        Console.WriteLine("Kucing 8 jam tidur");
     }
 }
 
@@ -33,7 +33,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Kelinci myKelinci = new Kelinci();
+        IAnimal myKelinci = new Kelinci();
         Kucing myKucing = new Kucing();
         myKelinci.animalSound();
         myKucing.animalSound();

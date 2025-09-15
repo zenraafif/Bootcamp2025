@@ -1,0 +1,15 @@
+C:\Programming\EventHandler\obj\Debug\net9.0\EventHandler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\EventHandler\obj\Debug\net9.0\EventHandler.AssemblyInfoInputs.cache
+C:\Programming\EventHandler\obj\Debug\net9.0\EventHandler.AssemblyInfo.cs
+C:\Programming\EventHandler\obj\Debug\net9.0\EventHandler.csproj.CoreCompileInputs.cache
+C:\Programming\EventHandler\obj\Debug\net9.0\EventHandler.sourcelink.json
+C:\Programming\EventHandler\bin\Debug\net9.0\EventHandler.exe
+C:\Programming\EventHandler\bin\Debug\net9.0\EventHandler.deps.json
+C:\Programming\EventHandler\bin\Debug\net9.0\EventHandler.runtimeconfig.json
+C:\Programming\EventHandler\bin\Debug\net9.0\EventHandler.dll
+C:\Programming\EventHandler\bin\Debug\net9.0\EventHandler.pdb
+C:\Programming\EventHandler\obj\Debug\net9.0\EventHandler.dll
+C:\Programming\EventHandler\obj\Debug\net9.0\refint\EventHandler.dll
+C:\Programming\EventHandler\obj\Debug\net9.0\EventHandler.pdb
+C:\Programming\EventHandler\obj\Debug\net9.0\EventHandler.genruntimeconfig.cache
+C:\Programming\EventHandler\obj\Debug\net9.0\ref\EventHandler.dll

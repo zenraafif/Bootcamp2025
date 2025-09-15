@@ -1,0 +1,15 @@
+C:\Programming\SimpleDelegate\bin\Debug\net9.0\SimpleDelegate.exe
+C:\Programming\SimpleDelegate\bin\Debug\net9.0\SimpleDelegate.deps.json
+C:\Programming\SimpleDelegate\bin\Debug\net9.0\SimpleDelegate.runtimeconfig.json
+C:\Programming\SimpleDelegate\bin\Debug\net9.0\SimpleDelegate.dll
+C:\Programming\SimpleDelegate\bin\Debug\net9.0\SimpleDelegate.pdb
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\SimpleDelegate.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\SimpleDelegate.AssemblyInfoInputs.cache
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\SimpleDelegate.AssemblyInfo.cs
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\SimpleDelegate.csproj.CoreCompileInputs.cache
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\SimpleDelegate.sourcelink.json
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\SimpleDelegate.dll
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\refint\SimpleDelegate.dll
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\SimpleDelegate.pdb
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\SimpleDelegate.genruntimeconfig.cache
+C:\Programming\SimpleDelegate\obj\Debug\net9.0\ref\SimpleDelegate.dll

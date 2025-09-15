@@ -9,15 +9,13 @@ class Program
 
         for (int x = 1; x <= input; x++)
         {
-            if (x % 3 == 0 && x % 5 == 0)
-                Console.Write("foobar");
-            else if (x % 5 == 0)
-                Console.Write("bar");
-            else if (x % 3 == 0)
-                Console.Write("foo");
-            else
-                Console.Write(x);
-                
+            string result = "";
+            if (x % 3 == 0) result += "foo";
+            if (x % 5 == 0) result += "bar";
+            if (x % 7 == 0) result += "jazz";
+            if (result == "") result = x.ToString();
+            Console.Write(result);
+
             if (x < input)
                 Console.Write(", ");
         }

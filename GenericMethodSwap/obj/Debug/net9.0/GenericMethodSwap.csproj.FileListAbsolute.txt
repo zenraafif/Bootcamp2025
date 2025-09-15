@@ -1,0 +1,15 @@
+C:\Programming\GenericMethodSwap\bin\Debug\net9.0\GenericMethodSwap.exe
+C:\Programming\GenericMethodSwap\bin\Debug\net9.0\GenericMethodSwap.deps.json
+C:\Programming\GenericMethodSwap\bin\Debug\net9.0\GenericMethodSwap.runtimeconfig.json
+C:\Programming\GenericMethodSwap\bin\Debug\net9.0\GenericMethodSwap.dll
+C:\Programming\GenericMethodSwap\bin\Debug\net9.0\GenericMethodSwap.pdb
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\GenericMethodSwap.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\GenericMethodSwap.AssemblyInfoInputs.cache
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\GenericMethodSwap.AssemblyInfo.cs
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\GenericMethodSwap.csproj.CoreCompileInputs.cache
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\GenericMethodSwap.sourcelink.json
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\GenericMethodSwap.dll
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\refint\GenericMethodSwap.dll
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\GenericMethodSwap.pdb
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\GenericMethodSwap.genruntimeconfig.cache
+C:\Programming\GenericMethodSwap\obj\Debug\net9.0\ref\GenericMethodSwap.dll
