@@ -3,7 +3,7 @@
 
 class Test
 {
-    int Square(int x) => x * x; //short form
+    //int Square(int x) => x * x; //short form
     public static int Square2(int x)
     {
         return x * x;
@@ -57,8 +57,8 @@ class DelegateExample
         //     Console.Write(i + "  ");
         // ----------------PLUGIN DELEGATES-----------------
 
-        Transformer t = new Transformer(Test.Square2);// Create delegate instance
-        int result = t.Invoke(10); // Invoke delegate
+        Transformer tDel = new Transformer(Test.Square2);// Create delegate instance
+        int result = tDel.Invoke(10); // Invoke delegate
         Console.WriteLine(result);
         // // ---------------STATIC METHOD------------------
 
