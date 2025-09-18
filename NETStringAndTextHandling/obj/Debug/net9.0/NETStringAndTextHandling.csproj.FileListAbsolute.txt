@@ -1,0 +1,15 @@
+C:\Programming\NETStringAndTextHandling\bin\Debug\net9.0\NETStringAndTextHandling.exe
+C:\Programming\NETStringAndTextHandling\bin\Debug\net9.0\NETStringAndTextHandling.deps.json
+C:\Programming\NETStringAndTextHandling\bin\Debug\net9.0\NETStringAndTextHandling.runtimeconfig.json
+C:\Programming\NETStringAndTextHandling\bin\Debug\net9.0\NETStringAndTextHandling.dll
+C:\Programming\NETStringAndTextHandling\bin\Debug\net9.0\NETStringAndTextHandling.pdb
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\NETStringAndTextHandling.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\NETStringAndTextHandling.AssemblyInfoInputs.cache
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\NETStringAndTextHandling.AssemblyInfo.cs
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\NETStringAndTextHandling.csproj.CoreCompileInputs.cache
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\NETStringAndTextHandling.sourcelink.json
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\NETStringAndTextHandling.dll
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\refint\NETStringAndTextHandling.dll
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\NETStringAndTextHandling.pdb
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\NETStringAndTextHandling.genruntimeconfig.cache
+C:\Programming\NETStringAndTextHandling\obj\Debug\net9.0\ref\NETStringAndTextHandling.dll

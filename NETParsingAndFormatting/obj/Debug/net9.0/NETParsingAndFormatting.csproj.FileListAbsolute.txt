@@ -1,0 +1,15 @@
+C:\Programming\NETParsingAndFormatting\bin\Debug\net9.0\NETParsingAndFormatting.exe
+C:\Programming\NETParsingAndFormatting\bin\Debug\net9.0\NETParsingAndFormatting.deps.json
+C:\Programming\NETParsingAndFormatting\bin\Debug\net9.0\NETParsingAndFormatting.runtimeconfig.json
+C:\Programming\NETParsingAndFormatting\bin\Debug\net9.0\NETParsingAndFormatting.dll
+C:\Programming\NETParsingAndFormatting\bin\Debug\net9.0\NETParsingAndFormatting.pdb
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\NETParsingAndFormatting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\NETParsingAndFormatting.AssemblyInfoInputs.cache
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\NETParsingAndFormatting.AssemblyInfo.cs
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\NETParsingAndFormatting.csproj.CoreCompileInputs.cache
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\NETParsingAndFormatting.sourcelink.json
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\NETParsingAndFormatting.dll
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\refint\NETParsingAndFormatting.dll
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\NETParsingAndFormatting.pdb
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\NETParsingAndFormatting.genruntimeconfig.cache
+C:\Programming\NETParsingAndFormatting\obj\Debug\net9.0\ref\NETParsingAndFormatting.dll

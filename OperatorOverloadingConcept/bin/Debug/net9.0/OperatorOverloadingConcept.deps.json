@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "OperatorOverloadingConcept/1.0.0": {
+        "runtime": {
+          "OperatorOverloadingConcept.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OperatorOverloadingConcept/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,15 @@
+C:\Programming\Iterators\bin\Debug\net9.0\Iterators.exe
+C:\Programming\Iterators\bin\Debug\net9.0\Iterators.deps.json
+C:\Programming\Iterators\bin\Debug\net9.0\Iterators.runtimeconfig.json
+C:\Programming\Iterators\bin\Debug\net9.0\Iterators.dll
+C:\Programming\Iterators\bin\Debug\net9.0\Iterators.pdb
+C:\Programming\Iterators\obj\Debug\net9.0\Iterators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\Iterators\obj\Debug\net9.0\Iterators.AssemblyInfoInputs.cache
+C:\Programming\Iterators\obj\Debug\net9.0\Iterators.AssemblyInfo.cs
+C:\Programming\Iterators\obj\Debug\net9.0\Iterators.csproj.CoreCompileInputs.cache
+C:\Programming\Iterators\obj\Debug\net9.0\Iterators.sourcelink.json
+C:\Programming\Iterators\obj\Debug\net9.0\Iterators.dll
+C:\Programming\Iterators\obj\Debug\net9.0\refint\Iterators.dll
+C:\Programming\Iterators\obj\Debug\net9.0\Iterators.pdb
+C:\Programming\Iterators\obj\Debug\net9.0\Iterators.genruntimeconfig.cache
+C:\Programming\Iterators\obj\Debug\net9.0\ref\Iterators.dll

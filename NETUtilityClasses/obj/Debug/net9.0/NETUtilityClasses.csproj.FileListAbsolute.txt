@@ -1,0 +1,15 @@
+C:\Programming\NETUtilityClasses\bin\Debug\net9.0\NETUtilityClasses.exe
+C:\Programming\NETUtilityClasses\bin\Debug\net9.0\NETUtilityClasses.deps.json
+C:\Programming\NETUtilityClasses\bin\Debug\net9.0\NETUtilityClasses.runtimeconfig.json
+C:\Programming\NETUtilityClasses\bin\Debug\net9.0\NETUtilityClasses.dll
+C:\Programming\NETUtilityClasses\bin\Debug\net9.0\NETUtilityClasses.pdb
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\NETUtilityClasses.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\NETUtilityClasses.AssemblyInfoInputs.cache
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\NETUtilityClasses.AssemblyInfo.cs
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\NETUtilityClasses.csproj.CoreCompileInputs.cache
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\NETUtilityClasses.sourcelink.json
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\NETUtilityClasses.dll
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\refint\NETUtilityClasses.dll
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\NETUtilityClasses.pdb
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\NETUtilityClasses.genruntimeconfig.cache
+C:\Programming\NETUtilityClasses\obj\Debug\net9.0\ref\NETUtilityClasses.dll

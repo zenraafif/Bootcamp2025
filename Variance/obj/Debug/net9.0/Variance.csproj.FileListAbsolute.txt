@@ -1,0 +1,15 @@
+C:\Programming\Variance\bin\Debug\net9.0\Variance.exe
+C:\Programming\Variance\bin\Debug\net9.0\Variance.deps.json
+C:\Programming\Variance\bin\Debug\net9.0\Variance.runtimeconfig.json
+C:\Programming\Variance\bin\Debug\net9.0\Variance.dll
+C:\Programming\Variance\bin\Debug\net9.0\Variance.pdb
+C:\Programming\Variance\obj\Debug\net9.0\Variance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\Variance\obj\Debug\net9.0\Variance.AssemblyInfoInputs.cache
+C:\Programming\Variance\obj\Debug\net9.0\Variance.AssemblyInfo.cs
+C:\Programming\Variance\obj\Debug\net9.0\Variance.csproj.CoreCompileInputs.cache
+C:\Programming\Variance\obj\Debug\net9.0\Variance.sourcelink.json
+C:\Programming\Variance\obj\Debug\net9.0\Variance.dll
+C:\Programming\Variance\obj\Debug\net9.0\refint\Variance.dll
+C:\Programming\Variance\obj\Debug\net9.0\Variance.pdb
+C:\Programming\Variance\obj\Debug\net9.0\Variance.genruntimeconfig.cache
+C:\Programming\Variance\obj\Debug\net9.0\ref\Variance.dll

@@ -39,5 +39,11 @@ class Program
         // Output:
         // Lamp is ON
         // Event received: Someone turned on the lamp!
+
+        //Event = TurnedOn
+        //Delegate = SwitchHandler
+        //Event Handler = ShowMessage
+        //Publisher = Lamp
+        //Subscriber = Program
     }
 }

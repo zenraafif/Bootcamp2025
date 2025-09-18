@@ -1,0 +1,15 @@
+C:\Programming\Enumeration\bin\Debug\net9.0\Enumeration.exe
+C:\Programming\Enumeration\bin\Debug\net9.0\Enumeration.deps.json
+C:\Programming\Enumeration\bin\Debug\net9.0\Enumeration.runtimeconfig.json
+C:\Programming\Enumeration\bin\Debug\net9.0\Enumeration.dll
+C:\Programming\Enumeration\bin\Debug\net9.0\Enumeration.pdb
+C:\Programming\Enumeration\obj\Debug\net9.0\Enumeration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\Enumeration\obj\Debug\net9.0\Enumeration.AssemblyInfoInputs.cache
+C:\Programming\Enumeration\obj\Debug\net9.0\Enumeration.AssemblyInfo.cs
+C:\Programming\Enumeration\obj\Debug\net9.0\Enumeration.csproj.CoreCompileInputs.cache
+C:\Programming\Enumeration\obj\Debug\net9.0\Enumeration.sourcelink.json
+C:\Programming\Enumeration\obj\Debug\net9.0\Enumeration.dll
+C:\Programming\Enumeration\obj\Debug\net9.0\refint\Enumeration.dll
+C:\Programming\Enumeration\obj\Debug\net9.0\Enumeration.pdb
+C:\Programming\Enumeration\obj\Debug\net9.0\Enumeration.genruntimeconfig.cache
+C:\Programming\Enumeration\obj\Debug\net9.0\ref\Enumeration.dll

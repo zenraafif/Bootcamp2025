@@ -1,0 +1,15 @@
+C:\Programming\OperatorOverloadingConcept\bin\Debug\net9.0\OperatorOverloadingConcept.exe
+C:\Programming\OperatorOverloadingConcept\bin\Debug\net9.0\OperatorOverloadingConcept.deps.json
+C:\Programming\OperatorOverloadingConcept\bin\Debug\net9.0\OperatorOverloadingConcept.runtimeconfig.json
+C:\Programming\OperatorOverloadingConcept\bin\Debug\net9.0\OperatorOverloadingConcept.dll
+C:\Programming\OperatorOverloadingConcept\bin\Debug\net9.0\OperatorOverloadingConcept.pdb
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\OperatorOverloadingConcept.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\OperatorOverloadingConcept.AssemblyInfoInputs.cache
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\OperatorOverloadingConcept.AssemblyInfo.cs
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\OperatorOverloadingConcept.csproj.CoreCompileInputs.cache
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\OperatorOverloadingConcept.sourcelink.json
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\OperatorOverloadingConcept.dll
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\refint\OperatorOverloadingConcept.dll
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\OperatorOverloadingConcept.pdb
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\OperatorOverloadingConcept.genruntimeconfig.cache
+C:\Programming\OperatorOverloadingConcept\obj\Debug\net9.0\ref\OperatorOverloadingConcept.dll
