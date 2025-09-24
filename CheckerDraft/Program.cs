@@ -1,1 +1,310 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+namespace CheckersGame
+{    // ----------- INTERFACES ----------------
+    public enum PieceType { Men, King };
+    public enum PieceColor { Black, White };
+
+    public interface IPlayer
+    {
+        string Name { get; }
+        PieceColor Color { get; }
+        // IEnumerable<IPiece> Pieces { get; }
+    }
+
+
+    public interface IBoard
+    {
+        ISquare GetSquare(int x, int y);
+        IEnumerable<ISquare> Squares { get; }
+
+        // -----
+        // ADDITIONES
+        // -----  
+        void PrintBoard(); // PrintBoard accessible via interface IBoard
+    }
+
+    public interface ISquare
+    {
+        Position Position { get; }
+        IPiece Piece { get; set; } // is occupied by a piece or null
+        bool IsEmpty { get; }
+    }
+
+    public interface IPiece
+    {
+        PieceColor Color { get; }
+        PieceType Type { get; }
+
+    }
+
+
+    // ----------- IMPLEMENTATIONS ----------------
+    public class Player : IPlayer
+    {
+        public string Name { get; private set; }
+        public PieceColor Color { get; private set; }
+        // public IEnumerable<IPiece> Pieces { get; private set; }
+        public Player(string name, PieceColor color)
+        {
+            Name = name;
+            Color = color;
+            // Pieces = new List<IPiece>();
+        }
+    }
+
+    public struct Position
+    {
+        public int X { get; }
+        public int Y { get; }
+
+        public Position(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+    }
+    public class Square : ISquare
+    {
+        public Position Position { get; private set; }
+        public IPiece Piece { get; set; }
+        public bool IsEmpty => Piece == null;
+
+        public Square(Position position, IPiece piece = null)
+        {
+            Position = position;
+            Piece = piece;
+        }
+
+        // -----
+        // ADDITIONES
+        //-----  
+        public override string ToString()
+        {
+            if (Piece == null)
+                return "   "; // empty square
+
+            // Print Piece
+            string symbol = Piece.Type == PieceType.Men ? "M" : "K";
+            return Piece.Color == PieceColor.White ? $" W{symbol}" : $" B{symbol}";
+        }
+    }
+    public class Piece : IPiece
+    {
+        public PieceColor Color { get; private set; }
+        public PieceType Type { get; private set; }
+        public Piece(PieceColor color, PieceType type)
+        {
+            Color = color;
+            Type = type;
+        }
+    }
+    public class Board : IBoard
+    {
+        // private ISquare[8, 8] _squares;
+        // _Squares will be initialized in the constructor
+        // _squares will contain ISquare objects for dark squares and null for light squares
+        private readonly ISquare[,] _squares = new ISquare[8, 8];
+
+        // Enumerable of all squares on the board
+        // Enumerable will skip null squares
+        // Enumerable will be used to initialize pieces on the board
+        // Enumerable will be used to display the board
+        // Foreach square will be accessed by its position (x, y)
+        // Only dark squares will be initialized, light squares will be null
+        // Dark squares are those where (x + y) % 2 == 1
+        // (x + y) % 2 == 0 are light squares because if (X + Y) is even, both X and Y are either even or odd
+        // Dark squares will be at positions (1,0), (3,0), (5,0), (7,0), (0,1), (2,1), (4,1), (6,1), etc.
+        // Light squares will be at positions (0,0), (2,0), (4,0), (6,0), (1,1), (3,1), (5,1), (7,1), etc.
+        // Only 32 squares will be initialized, 16 for each player
+        // Black pieces will be initialized on rows 0, 1, 2
+        // White pieces will be initialized on rows 5, 6, 7
+        // Each square will be initialized with its position and a piece if occupied
+        // Black pieces will be initialized with PieceType
+        // Dark squares will be initialized with their position and no piece
+        // Light squares will be null
+        // Foreach just keep getting squares from the array and yield return them if not null until all squares are processed
+        public IEnumerable<ISquare> Squares
+        {
+            get
+            {
+                foreach (var square in _squares)
+                    if (square != null)
+                        yield return square;
+                    else
+                        continue;
+            }
+        }
+
+        public ISquare GetSquare(int x, int y)
+        {
+            return _squares[x, y];
+        }
+        
+        public Board()
+        {
+            for (int y = 0; y < 8; y++)
+
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    _squares[x, y] = new Square(new Position(x, y));
+                }
+            }
+
+            // -----
+            // ADDITIONES
+            // -----  
+            InitializePieces();
+        }
+
+        // Explicit interface implementation
+        // Explicit means that the method can only be accessed through the interface
+        // Explicit usually used when we want to hide the method from the class
+        // accessing method through interface is done by casting the class to the interface, for example:
+        // IBoard board = new Board();
+        // Returntype methodName(parameters) { ... }
+        // Implicit means that the method can be accessed through the class
+        // Here, we want to hide the GetSquare method from the Board class
+        // This is done to prevent direct access to the squares array
+        // This method can only be accessed through the IBoard interface   
+        // Returntype Owner.MethodName(parameters)
+        // ISquare is used because in IBoard interface, GetSquare method returns ISquare
+        // This is done to hide the implementation details of the Board class
+        // This is a common practice in C# to provide a clean interface
+        // This method returns the square at the given coordinates
+        ISquare IBoard.GetSquare(int x, int y)
+        {
+            if (x < 0 || x >= 8 || y < 0 || y >= 8)
+                throw new ArgumentOutOfRangeException("Coordinates out of bounds");
+            return _squares[x, y];
+        }
+        
+        // -----
+        // ADDITIONES
+        // -----  
+        private void InitializePieces()
+        {
+            // place black (top rows)
+            for (int y = 0; y < 3; y++)
+                for (int x = 0; x < 8; x++)
+                    if ((x + y) % 2 == 1)
+                        _squares[x, y].Piece = new Piece(PieceColor.Black, PieceType.Men);
+
+            // place white (bottom rows)
+            for (int y = 5; y < 8; y++)
+                for (int x = 0; x < 8; x++)
+                    if ((x + y) % 2 == 1)
+                        _squares[x, y].Piece = new Piece(PieceColor.White, PieceType.Men);
+        }
+
+        // -----
+        // ADDITIONES
+        // -----  
+        public void PrintBoard()
+        {
+            Console.WriteLine("    A  B  C  D  E  F  G  H");
+            for (int y = 7; y >= 0; y--)
+            {
+                Console.Write($" {y + 1} ");
+                for (int x = 0; x < 8; x++)
+                {
+                    var sq = _squares[x, y];
+                    bool dark = (x + y) % 2 == 1;
+                    Console.BackgroundColor = dark ? ConsoleColor.DarkGray : ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(sq.ToString());
+                }
+                Console.ResetColor();
+                Console.WriteLine($" {y + 1}");
+            }
+            Console.WriteLine("    A  B  C  D  E  F  G  H");
+            Console.ResetColor();
+        }
+        
+
+    }
+}
+
+
+class Program
+{
+    public static void Main(string[] args)
+        {
+            // IBoard board = new Board();
+            CheckersGame.IBoard board = new CheckersGame.Board();
+            board.PrintBoard();
+
+
+
+            // Panggil explicit implementation
+            CheckersGame.ISquare square = board.GetSquare(0, 0);
+
+            Console.WriteLine(square.Position.X); // akses property Position
+            Console.WriteLine(square.IsEmpty);    // akses property IsEmpty
+
+    }
+}
+
+// class Program
+//     {
+//         public static void Main(string[] args)
+//         {
+//             DrawCheckersBoard();
+//             Console.ResetColor();
+//             Console.WriteLine();
+//             Console.WriteLine("Press any key to exit...");
+//             Console.ReadKey(true);
+//         }
+
+//         static void DrawCheckersBoard()
+//         {
+//             const int size = 8;
+//             const char blackPiece = 'o';
+//             const char whitePiece = '*';
+//             const string emptySquare = "  ";
+
+//             // Column labels
+//             Console.Write("   ");
+//             for (int c = 0; c < size; c++)
+//                 Console.Write($" {(char)('A' + c)}");
+//             Console.WriteLine();
+
+//             for (int r = 0; r < size; r++)
+//             {
+//                 int displayRow = size - r;
+//                 Console.Write($" {displayRow} ");
+
+//                 for (int c = 0; c < size; c++)
+//                 {
+//                     bool isDarkSquare = (r + c) % 2 == 1;
+
+//                     Console.BackgroundColor = isDarkSquare ? ConsoleColor.DarkGray : ConsoleColor.Gray;
+//                     Console.ForegroundColor = isDarkSquare ? ConsoleColor.White : ConsoleColor.Black;
+
+//                     string content = emptySquare;
+//                     if (isDarkSquare)
+//                     {
+//                         if (r <= 2)
+//                             content = $" {blackPiece}";
+//                         else if (r >= 5)
+//                             content = $" {whitePiece}";
+//                     }
+
+//                     Console.Write(content);
+//                 }
+
+//                 Console.ResetColor();
+//                 Console.WriteLine($"  {displayRow}");
+//             }
+
+//             // Bottom labels
+//             Console.Write("   ");
+//             for (int c = 0; c < size; c++)
+//                 Console.Write($" {(char)('A' + c)}");
+//             Console.WriteLine();
+//         }
+//     }
