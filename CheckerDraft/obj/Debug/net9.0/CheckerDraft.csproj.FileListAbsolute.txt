@@ -1,0 +1,15 @@
+C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.AssemblyInfoInputs.cache
+C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.AssemblyInfo.cs
+C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.csproj.CoreCompileInputs.cache
+C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.sourcelink.json
+C:\Programming\CheckerDraft\bin\Debug\net9.0\CheckerDraft.exe
+C:\Programming\CheckerDraft\bin\Debug\net9.0\CheckerDraft.deps.json
+C:\Programming\CheckerDraft\bin\Debug\net9.0\CheckerDraft.runtimeconfig.json
+C:\Programming\CheckerDraft\bin\Debug\net9.0\CheckerDraft.dll
+C:\Programming\CheckerDraft\bin\Debug\net9.0\CheckerDraft.pdb
+C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.dll
+C:\Programming\CheckerDraft\obj\Debug\net9.0\refint\CheckerDraft.dll
+C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.pdb
+C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.genruntimeconfig.cache
+C:\Programming\CheckerDraft\obj\Debug\net9.0\ref\CheckerDraft.dll

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StackUndoRedo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+325a366878177dc4e9aae7ea307e0ee2a53e91ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbac9e6fb606156bbc4276212bd388c0599bd47b")]
 [assembly: System.Reflection.AssemblyProductAttribute("StackUndoRedo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StackUndoRedo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
