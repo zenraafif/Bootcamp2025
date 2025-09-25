@@ -1,0 +1,15 @@
+C:\Programming\NETGarbageCollection\bin\Debug\net9.0\NETGarbageCollection.exe
+C:\Programming\NETGarbageCollection\bin\Debug\net9.0\NETGarbageCollection.deps.json
+C:\Programming\NETGarbageCollection\bin\Debug\net9.0\NETGarbageCollection.runtimeconfig.json
+C:\Programming\NETGarbageCollection\bin\Debug\net9.0\NETGarbageCollection.dll
+C:\Programming\NETGarbageCollection\bin\Debug\net9.0\NETGarbageCollection.pdb
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\NETGarbageCollection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\NETGarbageCollection.AssemblyInfoInputs.cache
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\NETGarbageCollection.AssemblyInfo.cs
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\NETGarbageCollection.csproj.CoreCompileInputs.cache
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\NETGarbageCollection.sourcelink.json
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\NETGarbageCollection.dll
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\refint\NETGarbageCollection.dll
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\NETGarbageCollection.pdb
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\NETGarbageCollection.genruntimeconfig.cache
+C:\Programming\NETGarbageCollection\obj\Debug\net9.0\ref\NETGarbageCollection.dll

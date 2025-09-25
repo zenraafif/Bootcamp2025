@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CheckersGame;
 
 
 namespace CheckersGame
@@ -143,7 +144,7 @@ namespace CheckersGame
         {
             return _squares[x, y];
         }
-        
+
         public Board()
         {
             for (int y = 0; y < 8; y++)
@@ -182,7 +183,7 @@ namespace CheckersGame
                 throw new ArgumentOutOfRangeException("Coordinates out of bounds");
             return _squares[x, y];
         }
-        
+
         // -----
         // ADDITIONES
         // -----  
@@ -224,7 +225,62 @@ namespace CheckersGame
             Console.WriteLine("    A  B  C  D  E  F  G  H");
             Console.ResetColor();
         }
-        
+
+
+    }
+    public class GameController
+    {
+        private IBoard _board;
+        private List<IPlayer> _players;
+        private int _currentTurn;
+        private Stack<(ISquare From, ISquare To, IPiece? Captured)> _moveHistory = new();
+        public IPlayer CurrentPlayer
+        {
+            get
+            {
+                int index = _currentTurn % _players.Count;
+                return _players[index];
+            }
+        }
+        // public IPlayer CurrentPlayer => _players[_currentTurn % _players.Count];
+
+        // +Action<.Player>? OnTurnChanged
+
+        // +Action<ISquare, ISquare>? OnMoveApplied
+        public GameController(IBoard board, List<IPlayer> players)
+        {
+            _board = board;
+            _players = players;
+            _currentTurn = 0;
+        }
+        public void StartGame()
+        {
+            Console.WriteLine("Game started");
+            _board.PrintBoard();
+        }
+        public void SwitchTurn()
+        {
+
+        }
+        // public GetAllPossibleMoves(){}
+
+        public bool ValidateMove()
+        {
+            return true;
+        }
+        public void ApplyMove()
+        {
+
+        }
+        public bool IsGameOver()
+        {
+            return false;
+        }
+        public bool HasAdditionalMove()
+        {
+            return false;
+        }
+        public bool 
 
     }
 }
@@ -233,15 +289,24 @@ namespace CheckersGame
 class Program
 {
     public static void Main(string[] args)
-        {
-            // IBoard board = new Board();
-            CheckersGame.IBoard board = new CheckersGame.Board();
-            board.PrintBoard();
+    {
+        // IBoard board = new Board();
+        // CheckersGame.IBoard board = new CheckersGame.Board();
+        // board.PrintBoard();
+        Board board = new Board();
+        var players = new List<IPlayer>
+            {
+                new Player("Zen", PieceColor.Black),
+                new Player("Afif", PieceColor.White)
+            };
 
+        var game = new GameController(board, players);
+        game.StartGame();
 
+        Console.WriteLine($"Player now : {game.CurrentPlayer.Name}");
 
             // Panggil explicit implementation
-            CheckersGame.ISquare square = board.GetSquare(0, 0);
+        CheckersGame.ISquare square = board.GetSquare(0, 0);
 
             Console.WriteLine(square.Position.X); // akses property Position
             Console.WriteLine(square.IsEmpty);    // akses property IsEmpty

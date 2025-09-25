@@ -1,0 +1,15 @@
+C:\Programming\TryCode\bin\Debug\net9.0\TryCode.exe
+C:\Programming\TryCode\bin\Debug\net9.0\TryCode.deps.json
+C:\Programming\TryCode\bin\Debug\net9.0\TryCode.runtimeconfig.json
+C:\Programming\TryCode\bin\Debug\net9.0\TryCode.dll
+C:\Programming\TryCode\bin\Debug\net9.0\TryCode.pdb
+C:\Programming\TryCode\obj\Debug\net9.0\TryCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\TryCode\obj\Debug\net9.0\TryCode.AssemblyInfoInputs.cache
+C:\Programming\TryCode\obj\Debug\net9.0\TryCode.AssemblyInfo.cs
+C:\Programming\TryCode\obj\Debug\net9.0\TryCode.csproj.CoreCompileInputs.cache
+C:\Programming\TryCode\obj\Debug\net9.0\TryCode.sourcelink.json
+C:\Programming\TryCode\obj\Debug\net9.0\TryCode.dll
+C:\Programming\TryCode\obj\Debug\net9.0\refint\TryCode.dll
+C:\Programming\TryCode\obj\Debug\net9.0\TryCode.pdb
+C:\Programming\TryCode\obj\Debug\net9.0\TryCode.genruntimeconfig.cache
+C:\Programming\TryCode\obj\Debug\net9.0\ref\TryCode.dll

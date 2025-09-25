@@ -1,0 +1,15 @@
+C:\Programming\Finalizer\bin\Debug\net9.0\Finalizer.exe
+C:\Programming\Finalizer\bin\Debug\net9.0\Finalizer.deps.json
+C:\Programming\Finalizer\bin\Debug\net9.0\Finalizer.runtimeconfig.json
+C:\Programming\Finalizer\bin\Debug\net9.0\Finalizer.dll
+C:\Programming\Finalizer\bin\Debug\net9.0\Finalizer.pdb
+C:\Programming\Finalizer\obj\Debug\net9.0\Finalizer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\Finalizer\obj\Debug\net9.0\Finalizer.AssemblyInfoInputs.cache
+C:\Programming\Finalizer\obj\Debug\net9.0\Finalizer.AssemblyInfo.cs
+C:\Programming\Finalizer\obj\Debug\net9.0\Finalizer.csproj.CoreCompileInputs.cache
+C:\Programming\Finalizer\obj\Debug\net9.0\Finalizer.sourcelink.json
+C:\Programming\Finalizer\obj\Debug\net9.0\Finalizer.dll
+C:\Programming\Finalizer\obj\Debug\net9.0\refint\Finalizer.dll
+C:\Programming\Finalizer\obj\Debug\net9.0\Finalizer.pdb
+C:\Programming\Finalizer\obj\Debug\net9.0\Finalizer.genruntimeconfig.cache
+C:\Programming\Finalizer\obj\Debug\net9.0\ref\Finalizer.dll

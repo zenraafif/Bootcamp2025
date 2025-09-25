@@ -1,0 +1,15 @@
+C:\Programming\NETLeaks\obj\Debug\net9.0\NETLeaks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\NETLeaks\obj\Debug\net9.0\NETLeaks.AssemblyInfoInputs.cache
+C:\Programming\NETLeaks\obj\Debug\net9.0\NETLeaks.AssemblyInfo.cs
+C:\Programming\NETLeaks\obj\Debug\net9.0\NETLeaks.csproj.CoreCompileInputs.cache
+C:\Programming\NETLeaks\obj\Debug\net9.0\NETLeaks.sourcelink.json
+C:\Programming\NETLeaks\bin\Debug\net9.0\NETLeaks.exe
+C:\Programming\NETLeaks\bin\Debug\net9.0\NETLeaks.deps.json
+C:\Programming\NETLeaks\bin\Debug\net9.0\NETLeaks.runtimeconfig.json
+C:\Programming\NETLeaks\bin\Debug\net9.0\NETLeaks.dll
+C:\Programming\NETLeaks\bin\Debug\net9.0\NETLeaks.pdb
+C:\Programming\NETLeaks\obj\Debug\net9.0\NETLeaks.dll
+C:\Programming\NETLeaks\obj\Debug\net9.0\refint\NETLeaks.dll
+C:\Programming\NETLeaks\obj\Debug\net9.0\NETLeaks.pdb
+C:\Programming\NETLeaks\obj\Debug\net9.0\NETLeaks.genruntimeconfig.cache
+C:\Programming\NETLeaks\obj\Debug\net9.0\ref\NETLeaks.dll
