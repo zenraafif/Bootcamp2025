@@ -1,0 +1,15 @@
+C:\Programming\NETMultiThreading\bin\Debug\net9.0\NETMultiThreading.exe
+C:\Programming\NETMultiThreading\bin\Debug\net9.0\NETMultiThreading.deps.json
+C:\Programming\NETMultiThreading\bin\Debug\net9.0\NETMultiThreading.runtimeconfig.json
+C:\Programming\NETMultiThreading\bin\Debug\net9.0\NETMultiThreading.dll
+C:\Programming\NETMultiThreading\bin\Debug\net9.0\NETMultiThreading.pdb
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\NETMultiThreading.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\NETMultiThreading.AssemblyInfoInputs.cache
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\NETMultiThreading.AssemblyInfo.cs
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\NETMultiThreading.csproj.CoreCompileInputs.cache
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\NETMultiThreading.sourcelink.json
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\NETMultiThreading.dll
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\refint\NETMultiThreading.dll
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\NETMultiThreading.pdb
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\NETMultiThreading.genruntimeconfig.cache
+C:\Programming\NETMultiThreading\obj\Debug\net9.0\ref\NETMultiThreading.dll

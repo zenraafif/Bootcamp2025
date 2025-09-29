@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Programming\\01_LogicExercise\\01_LogicExercise.csproj": {}
+    "C:\\Programming\\01_LogicExercise\\01_LogicExercise.csproj": {}
   },
   "projects": {
-    "c:\\Programming\\01_LogicExercise\\01_LogicExercise.csproj": {
+    "C:\\Programming\\01_LogicExercise\\01_LogicExercise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Programming\\01_LogicExercise\\01_LogicExercise.csproj",
+        "projectUniqueName": "C:\\Programming\\01_LogicExercise\\01_LogicExercise.csproj",
         "projectName": "01_LogicExercise",
-        "projectPath": "c:\\Programming\\01_LogicExercise\\01_LogicExercise.csproj",
+        "projectPath": "C:\\Programming\\01_LogicExercise\\01_LogicExercise.csproj",
         "packagesPath": "C:\\Users\\microsoft\\.nuget\\packages\\",
-        "outputPath": "c:\\Programming\\01_LogicExercise\\obj\\",
+        "outputPath": "C:\\Programming\\01_LogicExercise\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

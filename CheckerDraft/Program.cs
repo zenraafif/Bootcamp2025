@@ -64,9 +64,12 @@ class Program
             // Try applying move
             try
             {
-                game.ApplyMove(move);
-                board.PrintBoard();
-                game.SwitchTurn();
+                if (game.ValidateMove(move))
+                {
+                    game.ApplyMove(move);
+                    board.PrintBoard();
+                    game.SwitchTurn();
+                }
             }
             catch (Exception ex)
             {

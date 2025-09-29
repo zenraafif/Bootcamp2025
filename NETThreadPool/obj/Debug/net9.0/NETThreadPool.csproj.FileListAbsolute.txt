@@ -1,0 +1,15 @@
+C:\Programming\NETThreadPool\bin\Debug\net9.0\NETThreadPool.exe
+C:\Programming\NETThreadPool\bin\Debug\net9.0\NETThreadPool.deps.json
+C:\Programming\NETThreadPool\bin\Debug\net9.0\NETThreadPool.runtimeconfig.json
+C:\Programming\NETThreadPool\bin\Debug\net9.0\NETThreadPool.dll
+C:\Programming\NETThreadPool\bin\Debug\net9.0\NETThreadPool.pdb
+C:\Programming\NETThreadPool\obj\Debug\net9.0\NETThreadPool.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\NETThreadPool\obj\Debug\net9.0\NETThreadPool.AssemblyInfoInputs.cache
+C:\Programming\NETThreadPool\obj\Debug\net9.0\NETThreadPool.AssemblyInfo.cs
+C:\Programming\NETThreadPool\obj\Debug\net9.0\NETThreadPool.csproj.CoreCompileInputs.cache
+C:\Programming\NETThreadPool\obj\Debug\net9.0\NETThreadPool.sourcelink.json
+C:\Programming\NETThreadPool\obj\Debug\net9.0\NETThreadPool.dll
+C:\Programming\NETThreadPool\obj\Debug\net9.0\refint\NETThreadPool.dll
+C:\Programming\NETThreadPool\obj\Debug\net9.0\NETThreadPool.pdb
+C:\Programming\NETThreadPool\obj\Debug\net9.0\NETThreadPool.genruntimeconfig.cache
+C:\Programming\NETThreadPool\obj\Debug\net9.0\ref\NETThreadPool.dll
