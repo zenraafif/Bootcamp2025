@@ -5,7 +5,12 @@ public class GameController
     private IBoard _board;
     private List<IPlayer> _players;
     private int _currentTurn;
-    private Stack<(ISquare From, ISquare To, IPiece? Captured)> _moveHistory = new();
+    // private Stack<(ISquare From, ISquare To, IPiece? Captured)> _moveHistory = new();
+    // private readonly Stack<Move> _moveHistory = new Stack<Move>();
+    private readonly Stack<(ISquare From, ISquare To, IPiece? Captured, Position? CapturedPosition)> _moveHistory 
+    = new Stack<(ISquare, ISquare, IPiece?, Position?)>();
+
+
     public IPlayer CurrentPlayer
     {
         get
@@ -42,6 +47,64 @@ public class GameController
         }
     }
     // public GetAllPossibleMoves(){}
+    public bool ShouldPromote(ISquare square)
+    {
+        int pieceX = square.Position.X;
+        int pieceY = square.Position.Y;
+
+        int[,] TopSquareBlack = { { 0, 7 }, { 2, 7 }, { 4, 7 }, { 6, 7 } };
+        int[,] TopSquareWhite = { { 1, 0 }, { 3, 0 }, { 5, 0 }, { 7, 0 } };
+        //topSquareBlack = {0,7}, {2,7}, {4,7}, {6,7}
+        //topSquareWhite = {1,0}, {3,0}, {5,0}, {7,0}
+
+        //if  piece.Color == PieceColor.White && Square 
+        if (square.Piece.Color == PieceColor.Black)
+        {
+            // Console.WriteLine("Black");
+            // Console.WriteLine(TopSquareBlack.GetLength(0));
+            for (int i = 0; i < TopSquareBlack.GetLength(0); i++)
+            {
+                int x = TopSquareBlack[i, 0];
+                int y = TopSquareBlack[i, 1];
+                // Console.WriteLine($"x= {x}, y= {y}");
+
+                if (pieceX == x && pieceY == y)
+                    // square.Piece.Type = PieceType.King; 
+                    (square.Piece as Piece)?.PromoteToKing();
+                    return true;
+            }
+        }
+        else if (square.Piece.Color == PieceColor.White)
+        {
+            // Console.WriteLine("White");
+            for (int i = 0; i < TopSquareWhite.GetLength(0); i++)
+            {
+                int x = TopSquareWhite[i, 0];
+                int y = TopSquareWhite[i, 1];
+
+                if (pieceX == x && pieceY == y)
+                    (square.Piece as Piece)?.PromoteToKing();
+                    return true;
+            }
+        }
+
+        return false;
+    }
+    public bool ShouldPromotes(ISquare square)
+{
+    if (square.IsEmpty)
+        return false;
+
+    var piece = square.Piece;
+
+    if (piece.Color == PieceColor.Black && square.Position.Y == 7)
+        return true;
+
+    if (piece.Color == PieceColor.White && square.Position.Y == 0)
+        return true;
+
+    return false;
+}
 
     private bool CanCaptureFrom(Position pos)
     {
@@ -138,7 +201,7 @@ public class GameController
     public void ApplyMove(Move move)
     {
         var fromSquare = _board.GetSquare(move.From.X, move.From.Y);
-        var toSquare   = _board.GetSquare(move.To.X, move.To.Y);
+        var toSquare = _board.GetSquare(move.To.X, move.To.Y);
 
 
         if (fromSquare.IsEmpty)
@@ -149,6 +212,11 @@ public class GameController
         toSquare.Piece = fromSquare.Piece;
         fromSquare.Piece = null;
 
+        // Debugging
+        // Console.WriteLine($"FromSquare: {fromSquare?.Piece?.Color}");
+        // Console.WriteLine($"ToSquare: {toSquare?.Piece?.Color}");
+        ShouldPromote(toSquare);
+
         int horizontalChange = move.To.X - move.From.X;
         int verticalChange = move.To.Y - move.From.Y;
 
@@ -156,12 +224,13 @@ public class GameController
         int absVerticalChange = Math.Abs(verticalChange);
 
         // check if a jump is capture
+        //find captured piece position
+        int capturedPieceX = (move.From.X + move.To.X) / 2;
+        int capturedPieceY = (move.From.Y + move.To.Y) / 2;
+        var capturedSquare = _board.GetSquare(capturedPieceX, capturedPieceY);
+
         if (absHorizontalChange == 2 && absVerticalChange == 2)
         {
-            //find captured piece position
-            int capturedPieceX = (move.From.X + move.To.X) / 2;
-            int capturedPieceY = (move.From.Y + move.To.Y) / 2;
-
 
             var captured = _board.GetSquare(capturedPieceX, capturedPieceY);
             //captured is the square that should contain the opponent’s piece.
@@ -173,6 +242,41 @@ public class GameController
                 captured.Piece = null;
             }
         }
+        
+        _moveHistory.Push(
+            (fromSquare,
+            toSquare,
+            capturedSquare.Piece,
+            capturedSquare.Position)
+        );
+
+        // _moveHistory.Push((fromSquare, toSquare, move.CapturedPiece, capturedSquare.Position));
+
+        // Debugging
+        Console.WriteLine("Move History");
+        foreach (var moved in _moveHistory)
+        {
+            Console.WriteLine(
+                $"From ({moved.From.Position.X},{moved.From.Position.Y}) -> " +
+                $"To ({moved.To.Position.X},{moved.To.Position.Y}) " +
+                $"{(moved.Captured != null ? $"Captured : {moved.Captured.Color} {moved.Captured.Type} at {moved.CapturedPosition}" : "")}"
+            );
+        }
+
+        // foreach (var moved in _moveHistory)
+        // {
+        //     Console.WriteLine(
+        //         $"From {moved.From} -> To {moved.To} " +
+        //         $"{(moved.CapturedPiece != null && moved.CapturedPosition != null
+        //             ? $"Captured {moved.CapturedPiece.Color} {moved.CapturedPiece.Type} at {moved.CapturedPosition}"
+        //             : "No capture")}"
+        //     );
+        // }
+    }
+
+    public bool IsDraw()
+    {
+        return false;
     }
     public bool IsGameOver()
     {
@@ -183,9 +287,6 @@ public class GameController
         return false;
     }
 
-    public bool ShouldPromote(ISquare square, IPiece piece)
-    {
-        return true;            
-    }
+
 
 }

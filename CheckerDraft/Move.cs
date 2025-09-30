@@ -22,5 +22,16 @@ public class Move
         }
         return move;
     }
+    // public override string ToString()
+    // {
+    //     string move = $"Move: From {From} -> To {To}";
+    //     if (CapturedPiece != null && CapturedPosition != null)
+    //     {
+    //         move += $" | Captured: {CapturedPiece.Color} {CapturedPiece.Type} at {CapturedPosition}";
+    //     }
+    //     return move;
+    // }
+
+
         
 }
