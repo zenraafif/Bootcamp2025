@@ -228,7 +228,6 @@ public class GameController
         int capturedPieceX = (move.From.X + move.To.X) / 2;
         int capturedPieceY = (move.From.Y + move.To.Y) / 2;
         var capturedSquare = _board.GetSquare(capturedPieceX, capturedPieceY);
-
         if (absHorizontalChange == 2 && absVerticalChange == 2)
         {
 
@@ -242,11 +241,11 @@ public class GameController
                 captured.Piece = null;
             }
         }
-        
+
         _moveHistory.Push(
             (fromSquare,
             toSquare,
-            capturedSquare.Piece,
+            move.CapturedPiece,
             capturedSquare.Position)
         );
 
@@ -259,10 +258,13 @@ public class GameController
             Console.WriteLine(
                 $"From ({moved.From.Position.X},{moved.From.Position.Y}) -> " +
                 $"To ({moved.To.Position.X},{moved.To.Position.Y}) " +
-                $"{(moved.Captured != null ? $"Captured : {moved.Captured.Color} {moved.Captured.Type} at {moved.CapturedPosition}" : "")}"
+                $"{(moved.Captured != null ? $"Captured : {moved.Captured.Color} {moved.Captured.Type} at {move.CapturedPosition}" : "")}"
             );
         }
+        int SumOfMove = _moveHistory.Count;
+        Console.WriteLine($"Move applied count: {SumOfMove}");
 
+        
         // foreach (var moved in _moveHistory)
         // {
         //     Console.WriteLine(
@@ -272,6 +274,9 @@ public class GameController
         //             : "No capture")}"
         //     );
         // }
+        /*
+
+        */
     }
 
     public bool IsDraw()

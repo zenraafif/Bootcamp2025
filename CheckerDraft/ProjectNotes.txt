@@ -1,0 +1,30 @@
+Double move ==> HasAdditionalCapture();
+
+game win() + display winner
+isGameOver();
+
+
+	isDraw() ==> 40 step
+	Undo
+	Redo
+
+Action OnTurnChanged
+Action OnMoveApplied
+
+isKing could been captured by Men?
+
+NOT MANDATORY :
+Move to GameController
+List of move possible ==> GetAllPossibleMoves()
+Append board
+
+DONE : 
+Convert to king ==> ShouldPromote()
+Conditional king move ==> bool ShouldPromote
+Stack history
+
+
+
+1 2 2 3
+4 5 3 4
+2 3 4 5
