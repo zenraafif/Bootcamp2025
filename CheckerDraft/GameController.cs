@@ -1,47 +1,46 @@
 ﻿namespace CheckerDraft;
 
-
-    public class GameController
+public class GameController
+{
+    private IBoard _board;
+    private List<IPlayer> _players;
+    private int _currentTurn;
+    private Stack<(ISquare From, ISquare To, IPiece? Captured)> _moveHistory = new();
+    public IPlayer CurrentPlayer
     {
-        private IBoard _board;
-        private List<IPlayer> _players;
-        private int _currentTurn;
-        private Stack<(ISquare From, ISquare To, IPiece? Captured)> _moveHistory = new();
-        public IPlayer CurrentPlayer
+        get
         {
-            get
-            {
-                int index = _currentTurn % _players.Count;
-                return _players[index];
-            }
+            int index = _currentTurn % _players.Count;
+            return _players[index];
         }
-        // public IPlayer CurrentPlayer => _players[_currentTurn % _players.Count];
+    }
+    // public IPlayer CurrentPlayer => _players[_currentTurn % _players.Count];
 
-        // +Action<.Player>? OnTurnChanged
+    // +Action<.Player>? OnTurnChanged
 
-        // +Action<ISquare, ISquare>? OnMoveApplied
-        public GameController(IBoard board, List<IPlayer> players)
+    // +Action<ISquare, ISquare>? OnMoveApplied
+    public GameController(IBoard board, List<IPlayer> players)
+    {
+        _board = board;
+        _players = players;
+        _currentTurn = 0;
+    }
+    public void StartGame()
+    {
+        Console.WriteLine("Game started");
+        _board.PrintBoard();
+    }
+    public void SwitchTurn()
+    {
+        if (_currentTurn == 0)
         {
-            _board = board;
-            _players = players;
+            _currentTurn = 1;
+        }
+        else
+        {
             _currentTurn = 0;
         }
-        public void StartGame()
-        {
-            Console.WriteLine("Game started");
-            _board.PrintBoard();
-        }
-        public void SwitchTurn()
-        {
-            if (_currentTurn == 0)
-            {
-                _currentTurn = 1;
-            }
-            else
-            {
-                _currentTurn = 0;
-            }
-        }
+    }
     // public GetAllPossibleMoves(){}
 
     private bool CanCaptureFrom(Position pos)
@@ -96,21 +95,15 @@
         var fromSquare = _board.GetSquare(move.From.X, move.From.Y);
         var toSquare = _board.GetSquare(move.To.X, move.To.Y);
 
-        // 1. Starting square must contain a piece
         if (fromSquare.IsEmpty)
             throw new InvalidOperationException("No piece at starting position!");
 
         var piece = fromSquare.Piece!;
-
-        // 2. Must belong to current player
         if (piece.Color != CurrentPlayer.Color)
             throw new InvalidOperationException("You can only move your own pieces!");
-
-        // 3. Destination must be empty
         if (!toSquare.IsEmpty)
             throw new InvalidOperationException("Target square is not empty!");
 
-        // 4. Movement direction (for Men)
         int dx = move.To.X - move.From.X;
         int dy = move.To.Y - move.From.Y;
         int absDx = Math.Abs(dx);
@@ -118,44 +111,34 @@
 
         bool mustCapture = CurrentPlayerHasCapture();
 
-        if (piece.Type == PieceType.Men)
+        // Normal move
+        if (absDx == 1 && absDy == 1)
         {
-            // Normal move (1 diagonal forward)
-            if (absDx == 1 && absDy == 1)
-            {
-                if (mustCapture)
-                    throw new InvalidOperationException("You must capture if possible!");
-                return true;
-            }
-
-            throw new InvalidOperationException("Invalid move for Men!");
-
-            // --- Capture move ---
-            if (absDx == 2 && absDy == 2)
-            {
-                int midX = (move.From.X + move.To.X) / 2;
-                int midY = (move.From.Y + move.To.Y) / 2;
-                var midSquare = _board.GetSquare(midX, midY);
-
-                if (!midSquare.IsEmpty && midSquare.Piece!.Color != piece.Color)
-                    return true;
-
-                throw new InvalidOperationException("Invalid capture: no opponent piece to jump over!");
-            }
+            if (mustCapture)
+                throw new InvalidOperationException("You must capture if possible!");
+            return true;
         }
 
-        return true;
+        // Capture move
+        if (absDx == 2 && absDy == 2)
+        {
+            int midX = (move.From.X + move.To.X) / 2;
+            int midY = (move.From.Y + move.To.Y) / 2;
+            var midSquare = _board.GetSquare(midX, midY);
+
+            if (!midSquare.IsEmpty && midSquare.Piece!.Color != piece.Color)
+                return true;
+
+            throw new InvalidOperationException("Invalid capture: no opponent piece to jump over!");
+        }
+
+        throw new InvalidOperationException("Invalid move!");
     }
 
-
-
-        public void ApplyMove(Move move)
-        {
-            //Heres
-            // var fromSquare = _board.GetSquare(move.From.X, move.To.Y);
-            // var toSquare = _board.GetSquare(move.From.X, move.To.Y);
-            var fromSquare = _board.GetSquare(move.From.X, move.From.Y);
-            var toSquare   = _board.GetSquare(move.To.X, move.To.Y);
+    public void ApplyMove(Move move)
+    {
+        var fromSquare = _board.GetSquare(move.From.X, move.From.Y);
+        var toSquare   = _board.GetSquare(move.To.X, move.To.Y);
 
 
         if (fromSquare.IsEmpty)
@@ -163,97 +146,46 @@
             throw new InvalidOperationException("There is no piece at starting position!");
         }
 
-            toSquare.Piece = fromSquare.Piece;
-            fromSquare.Piece = null;
+        toSquare.Piece = fromSquare.Piece;
+        fromSquare.Piece = null;
 
-            int horizontalChange = move.To.X - move.From.X;
-            int verticalChange = move.To.Y - move.From.Y;
+        int horizontalChange = move.To.X - move.From.X;
+        int verticalChange = move.To.Y - move.From.Y;
 
-            int absHorizontalChange = Math.Abs(horizontalChange);
-            int absVerticalChange = Math.Abs(verticalChange);
+        int absHorizontalChange = Math.Abs(horizontalChange);
+        int absVerticalChange = Math.Abs(verticalChange);
 
-            // check if a jump is capture (simplified version)
-            if (absHorizontalChange == 2 && absVerticalChange == 2)
+        // check if a jump is capture
+        if (absHorizontalChange == 2 && absVerticalChange == 2)
+        {
+            //find captured piece position
+            int capturedPieceX = (move.From.X + move.To.X) / 2;
+            int capturedPieceY = (move.From.Y + move.To.Y) / 2;
+
+
+            var captured = _board.GetSquare(capturedPieceX, capturedPieceY);
+            //captured is the square that should contain the opponent’s piece.
+
+            if (!captured.IsEmpty)
             {
-                //find captured piece position
-                // int capturedPieceX = (move.From.X - move.To.X); //Taking the average (from + to) / 2 = gives that midpoint
-                // int capturedPieceY = (move.From.Y - move.To.Y);
-                int capturedPieceX = (move.From.X + move.To.X) / 2;
-                int capturedPieceY = (move.From.Y + move.To.Y) / 2;
-
-
-                var captured = _board.GetSquare(capturedPieceX, capturedPieceY);
-                //captured is the square that should contain the opponent’s piece.
-
-                if (!captured.IsEmpty)
-                {
-                    move.CapturedPiece = captured.Piece;
-                    move.CapturedPosition = captured.Position;
-                    captured.Piece = null;
-                }
+                move.CapturedPiece = captured.Piece;
+                move.CapturedPosition = captured.Position;
+                captured.Piece = null;
             }
-
-
-
         }
-        public bool IsGameOver()
-        {
-            return false;
-        }
-        public bool HasAdditionalMove()
-        {
-            return false;
-        }
-
-
+    }
+    public bool IsGameOver()
+    {
+        return false;
+    }
+    public bool HasAdditionalMove()
+    {
+        return false;
     }
 
+    public bool ShouldPromote(ISquare square, IPiece piece)
+    {
+        return true;            
+    }
 
-
-
-
-
-// public bool ValidateMove(Move move)
-// {
-//     var fromSquare = _board.GetSquare(move.From.X, move.From.Y);
-//     var toSquare   = _board.GetSquare(move.To.X, move.To.Y);
-
-//     if (fromSquare.IsEmpty)
-//         throw new InvalidOperationException("No piece at starting position!");
-
-//     var piece = fromSquare.Piece!;
-//     if (piece.Color != CurrentPlayer.Color)
-//         throw new InvalidOperationException("You can only move your own pieces!");
-//     if (!toSquare.IsEmpty)
-//         throw new InvalidOperationException("Target square is not empty!");
-
-//     int dx = move.To.X - move.From.X;
-//     int dy = move.To.Y - move.From.Y;
-//     int absDx = Math.Abs(dx);
-//     int absDy = Math.Abs(dy);
-
-//     bool mustCapture = CurrentPlayerHasCapture();
-
-    // --- Normal move ---
-    // if (absDx == 1 && absDy == 1)
-    // {
-    //     if (mustCapture)
-    //         throw new InvalidOperationException("You must capture if possible!");
-    //     return true;
-    // }
-
-    // // --- Capture move ---
-    // if (absDx == 2 && absDy == 2)
-    // {
-    //     int midX = (move.From.X + move.To.X) / 2;
-    //     int midY = (move.From.Y + move.To.Y) / 2;
-    //     var midSquare = _board.GetSquare(midX, midY);
-
-    //     if (!midSquare.IsEmpty && midSquare.Piece!.Color != piece.Color)
-    //         return true;
-
-    //     throw new InvalidOperationException("Invalid capture: no opponent piece to jump over!");
-    // }
-
-//     throw new InvalidOperationException("Invalid move!");
-// }
+}
