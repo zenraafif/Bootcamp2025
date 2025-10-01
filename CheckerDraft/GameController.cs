@@ -2,6 +2,7 @@
 
 public class GameController
 {
+    public Action<ISquare, ISquare>? OnMoveApplied; // action
     private IBoard _board;
     private List<IPlayer> _players;
     private int _currentTurn;
@@ -57,8 +58,6 @@ public class GameController
 
         int[,] TopSquareBlack = { { 0, 7 }, { 2, 7 }, { 4, 7 }, { 6, 7 } };
         int[,] TopSquareWhite = { { 1, 0 }, { 3, 0 }, { 5, 0 }, { 7, 0 } };
-        //topSquareBlack = {0,7}, {2,7}, {4,7}, {6,7}
-        //topSquareWhite = {1,0}, {3,0}, {5,0}, {7,0}
 
         //if  piece.Color == PieceColor.White && Square 
         if (square.Piece.Color == PieceColor.Black)
@@ -107,37 +106,6 @@ public class GameController
             return true;
 
         return false;
-    }
-
-    private bool CanMoveFrom(Position from)
-    {
-        var square = _board.GetSquare(from.X, from.Y);
-
-        if (square.IsEmpty)
-            return false; // There is no piece
-
-        var piece = square.Piece!;
-        int direction = piece.Color == PieceColor.White ? -1 : 1;
-        // White move forward (-1), Black move forward (+1)
-
-        // Checking two way cross for move
-        var possibleMoves = new[]
-        {
-            new Position(from.X - 1, from.Y + direction),
-            new Position(from.X + 1, from.Y + direction)
-        };
-
-        foreach (var pos in possibleMoves)
-        {
-            if (_board.IsInsideBoard(pos))
-            {
-                var targetSquare = _board.GetSquare(pos.X, pos.Y);
-                if (targetSquare.IsEmpty)
-                    return true; // There is valid move
-            }
-        }
-
-        return false; // There is NO valid move
     }
 
     private bool CanCaptureFrom(Position pos)
@@ -310,6 +278,19 @@ public class GameController
                 move.CapturedPosition = capturedSquare.Position;
                 capturedSquare.Piece = null; //remove captured piece from the Board
             }
+
+            // Double Move
+            if (move.CapturedPiece != null)
+            {
+                if (CanCaptureFrom(move.To))
+                {
+                    Console.WriteLine("Double move available! Continue with the same piece.");
+                    // Option A: force same player to move again
+                    // Option B: loop ApplyMove until no captures left
+                }
+            }
+
+
         }
 
         _moveHistory.Push(
@@ -321,21 +302,43 @@ public class GameController
 
         HasPieces(CurrentPlayer.Color);
         // Debugging MOVE HISTORY
-        // Console.WriteLine("Move History");
-        // foreach (var moved in _moveHistory)
-        // {
-        //     Console.WriteLine(
-        //         $"From ({moved.From.Position.X},{moved.From.Position.Y}) -> " +
-        //         $"To ({moved.To.Position.X},{moved.To.Position.Y}) " +
-        //         $"{(moved.Captured != null ? $"Captured : {moved.Captured.Color} {moved.Captured.Type} at {moved.CapturedPosition}" : "")}"
-        //     );
-        // }
+        Console.WriteLine("Move History");
+        foreach (var moved in _moveHistory)
+        {
+            Console.WriteLine(
+                $"From ({moved.From.Position.X},{moved.From.Position.Y}) -> " +
+                $"To ({moved.To.Position.X},{moved.To.Position.Y}) " +
+                $"{(moved.Captured != null ? $"Captured : {moved.Captured.Color} {moved.Captured.Type} at {moved.CapturedPosition}" : "")}"
+            );
+        }
+
+        OnMoveApplied?.Invoke(fromSquare, toSquare); // Action
 
         if (IsGameOver(CurrentPlayer.Color))
         {
             Console.WriteLine("GAME OVER");
+
+            if (GameIsDraw)
+            {
+                Console.WriteLine("Result: DRAW!");
+            }
+            else
+            {
+                Console.WriteLine($"Winner: {GetOpponent(CurrentPlayer.Color)}");
+            }
+
+            return;
         }
+        SwitchTurn();
     }
+    public PieceColor GetOpponent(PieceColor color)
+    {
+        if (color == PieceColor.White)
+            return PieceColor.Black;
+        else
+            return PieceColor.White;
+    }
+
     public bool HasPieces(PieceColor currentPlayerColor)
     {
         foreach (var square in _board.Squares)
@@ -357,13 +360,11 @@ public class GameController
         if (SumOfMove >= 40)
         {
             GameIsDraw = true;
-            Console.WriteLine("Enough, Game is DRAW!");
             return true;
         }
         else
         {
             GameIsDraw = false;
-            Console.WriteLine("Game continues, not a draw yet.");
             return false;
         }
     }

@@ -13,3 +13,18 @@ C:\Programming\CheckerDraft\obj\Debug\net9.0\refint\CheckerDraft.dll
 C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.pdb
 C:\Programming\CheckerDraft\obj\Debug\net9.0\CheckerDraft.genruntimeconfig.cache
 C:\Programming\CheckerDraft\obj\Debug\net9.0\ref\CheckerDraft.dll
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\bin\Debug\net9.0\CheckerDraft.exe
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\bin\Debug\net9.0\CheckerDraft.deps.json
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\bin\Debug\net9.0\CheckerDraft.runtimeconfig.json
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\bin\Debug\net9.0\CheckerDraft.dll
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\bin\Debug\net9.0\CheckerDraft.pdb
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\CheckerDraft.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\CheckerDraft.AssemblyInfoInputs.cache
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\CheckerDraft.AssemblyInfo.cs
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\CheckerDraft.csproj.CoreCompileInputs.cache
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\CheckerDraft.sourcelink.json
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\CheckerDraft.dll
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\refint\CheckerDraft.dll
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\CheckerDraft.pdb
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\CheckerDraft.genruntimeconfig.cache
+C:\Users\Zenra Afif\Documents\CSharp\Bootcamp2025\Bootcamp2025\CheckerDraft\obj\Debug\net9.0\ref\CheckerDraft.dll

@@ -19,6 +19,12 @@ class Program
 
         // Initialize game controller
         var game = new GameController(board, players);
+        // subscribe to event
+        game.OnMoveApplied += (from, to) =>
+        {
+            Console.WriteLine($"Piece moved from {from.Position} to {to.Position}");
+        };
+
         game.StartGame();
 
         while (true)
@@ -67,10 +73,10 @@ class Program
                 if (game.ValidateMove(move))
                 {
                     game.ApplyMove(move);
-                    // if (!game.IsGameOver(game.CurrentPlayer.Color))   // ← cek dulu
+                    // if (!game.IsGameOver(game.CurrentPlayer.Color))  
                     // {
                         board.PrintBoard();
-                        game.SwitchTurn();
+                        // game.SwitchTurn();
                     // }
                 }
             }
