@@ -5,10 +5,13 @@ public class GameController
     private IBoard _board;
     private List<IPlayer> _players;
     private int _currentTurn;
+    private bool GameIsOver;
+    private bool GameIsDraw;
     // private Stack<(ISquare From, ISquare To, IPiece? Captured)> _moveHistory = new();
     // private readonly Stack<Move> _moveHistory = new Stack<Move>();
-    private readonly Stack<(ISquare From, ISquare To, IPiece? Captured, Position? CapturedPosition)> _moveHistory 
+    private readonly Stack<(ISquare From, ISquare To, IPiece? Captured, Position? CapturedPosition)> _moveHistory
     = new Stack<(ISquare, ISquare, IPiece?, Position?)>();
+    public int SumOfMove => _moveHistory?.Count ?? 0;
 
 
     public IPlayer CurrentPlayer
@@ -91,20 +94,51 @@ public class GameController
         return false;
     }
     public bool ShouldPromotes(ISquare square)
-{
-    if (square.IsEmpty)
+    {
+        if (square.IsEmpty)
+            return false;
+
+        var piece = square.Piece;
+
+        if (piece.Color == PieceColor.Black && square.Position.Y == 7)
+            return true;
+
+        if (piece.Color == PieceColor.White && square.Position.Y == 0)
+            return true;
+
         return false;
+    }
 
-    var piece = square.Piece;
+    private bool CanMoveFrom(Position from)
+    {
+        var square = _board.GetSquare(from.X, from.Y);
 
-    if (piece.Color == PieceColor.Black && square.Position.Y == 7)
-        return true;
+        if (square.IsEmpty)
+            return false; // There is no piece
 
-    if (piece.Color == PieceColor.White && square.Position.Y == 0)
-        return true;
+        var piece = square.Piece!;
+        int direction = piece.Color == PieceColor.White ? -1 : 1;
+        // White move forward (-1), Black move forward (+1)
 
-    return false;
-}
+        // Checking two way cross for move
+        var possibleMoves = new[]
+        {
+            new Position(from.X - 1, from.Y + direction),
+            new Position(from.X + 1, from.Y + direction)
+        };
+
+        foreach (var pos in possibleMoves)
+        {
+            if (_board.IsInsideBoard(pos))
+            {
+                var targetSquare = _board.GetSquare(pos.X, pos.Y);
+                if (targetSquare.IsEmpty)
+                    return true; // There is valid move
+            }
+        }
+
+        return false; // There is NO valid move
+    }
 
     private bool CanCaptureFrom(Position pos)
     {
@@ -139,7 +173,7 @@ public class GameController
         return false;
     }
 
-    private bool CurrentPlayerHasCapture()
+    private bool IsCurrentPlayerHasCapture()
     {
         foreach (var sq in _board.Squares)
         {
@@ -167,18 +201,36 @@ public class GameController
         if (!toSquare.IsEmpty)
             throw new InvalidOperationException("Target square is not empty!");
 
+                                                // 4 5 3 4      1 2 2 3     2 3 4 5
+        // int dx = move.To.X - move.From.X; ===> 3 - 4 = -1    2 - 1 = 1   2 - 4 = 2
+        // int dy = move.To.Y - move.From.Y; ===> 4 - 5 = -1    3 - 2 = 1   5 - 3 = 2
         int dx = move.To.X - move.From.X;
         int dy = move.To.Y - move.From.Y;
         int absDx = Math.Abs(dx);
         int absDy = Math.Abs(dy);
 
-        bool mustCapture = CurrentPlayerHasCapture();
+        bool mustCapture = IsCurrentPlayerHasCapture();
 
-        // Normal move
+        // // Normal move
         if (absDx == 1 && absDy == 1)
         {
             if (mustCapture)
                 throw new InvalidOperationException("You must capture if possible!");
+
+            // Forward direction for Men
+            if (piece.Type != PieceType.King)
+            {
+                // White color move forward with (-1)
+                if (piece.Color == PieceColor.White && dy != -1)
+                {
+                    throw new InvalidOperationException("Men only move forward - White");
+                }
+                // Black color mover forward with (1)
+                if (piece.Color == PieceColor.Black && dy != 1)
+                {
+                    throw new InvalidOperationException("Men only move forward - Black");
+                }
+            }
             return true;
         }
 
@@ -190,10 +242,22 @@ public class GameController
             var midSquare = _board.GetSquare(midX, midY);
 
             if (!midSquare.IsEmpty && midSquare.Piece!.Color != piece.Color)
+            {
+                // Check forward capture for man (not king)
+                if (piece.Type != PieceType.King)
+                {
+                    if (piece.Color == PieceColor.White && dy != -2)
+                        throw new InvalidOperationException("White men can only capture forward!");
+                    if (piece.Color == PieceColor.Black && dy != 2)
+                        throw new InvalidOperationException("Black men can only capture forward!");
+                }
+
                 return true;
+            }
 
             throw new InvalidOperationException("Invalid capture: no opponent piece to jump over!");
         }
+        //--------------------------
 
         throw new InvalidOperationException("Invalid move!");
     }
@@ -202,13 +266,21 @@ public class GameController
     {
         var fromSquare = _board.GetSquare(move.From.X, move.From.Y);
         var toSquare = _board.GetSquare(move.To.X, move.To.Y);
+        // Debugging
+        // Console.WriteLine($"fromSquare: ({move.From.X},{move.From.Y}), " +
+        //                 $"Empty={fromSquare.IsEmpty}, " +
+        //                 $"Piece={(fromSquare.Piece == null ? "None" : $"{fromSquare.Piece.Color} {fromSquare.Piece.Type}")}");
 
+        // Console.WriteLine($"toSquare: ({move.To.X},{move.To.Y}), " +
+        //                 $"Empty={toSquare.IsEmpty}, " +
+        //                 $"Piece={(toSquare.Piece == null ? "None" : $"{toSquare.Piece.Color} {fromSquare.Piece.Type}")}");
 
         if (fromSquare.IsEmpty)
         {
             throw new InvalidOperationException("There is no piece at starting position!");
         }
 
+        // Change variable value after a move
         toSquare.Piece = fromSquare.Piece;
         fromSquare.Piece = null;
 
@@ -230,15 +302,13 @@ public class GameController
         var capturedSquare = _board.GetSquare(capturedPieceX, capturedPieceY);
         if (absHorizontalChange == 2 && absVerticalChange == 2)
         {
-
-            var captured = _board.GetSquare(capturedPieceX, capturedPieceY);
             //captured is the square that should contain the opponent’s piece.
 
-            if (!captured.IsEmpty)
+            if (!capturedSquare.IsEmpty)
             {
-                move.CapturedPiece = captured.Piece;
-                move.CapturedPosition = captured.Position;
-                captured.Piece = null;
+                move.CapturedPiece = capturedSquare.Piece;
+                move.CapturedPosition = capturedSquare.Position;
+                capturedSquare.Piece = null; //remove captured piece from the Board
             }
         }
 
@@ -249,49 +319,74 @@ public class GameController
             capturedSquare.Position)
         );
 
-        // _moveHistory.Push((fromSquare, toSquare, move.CapturedPiece, capturedSquare.Position));
-
-        // Debugging
-        Console.WriteLine("Move History");
-        foreach (var moved in _moveHistory)
-        {
-            Console.WriteLine(
-                $"From ({moved.From.Position.X},{moved.From.Position.Y}) -> " +
-                $"To ({moved.To.Position.X},{moved.To.Position.Y}) " +
-                $"{(moved.Captured != null ? $"Captured : {moved.Captured.Color} {moved.Captured.Type} at {move.CapturedPosition}" : "")}"
-            );
-        }
-        int SumOfMove = _moveHistory.Count;
-        Console.WriteLine($"Move applied count: {SumOfMove}");
-
-        
+        HasPieces(CurrentPlayer.Color);
+        // Debugging MOVE HISTORY
+        // Console.WriteLine("Move History");
         // foreach (var moved in _moveHistory)
         // {
         //     Console.WriteLine(
-        //         $"From {moved.From} -> To {moved.To} " +
-        //         $"{(moved.CapturedPiece != null && moved.CapturedPosition != null
-        //             ? $"Captured {moved.CapturedPiece.Color} {moved.CapturedPiece.Type} at {moved.CapturedPosition}"
-        //             : "No capture")}"
+        //         $"From ({moved.From.Position.X},{moved.From.Position.Y}) -> " +
+        //         $"To ({moved.To.Position.X},{moved.To.Position.Y}) " +
+        //         $"{(moved.Captured != null ? $"Captured : {moved.Captured.Color} {moved.Captured.Type} at {moved.CapturedPosition}" : "")}"
         //     );
         // }
-        /*
 
-        */
+        if (IsGameOver(CurrentPlayer.Color))
+        {
+            Console.WriteLine("GAME OVER");
+        }
     }
-
-    public bool IsDraw()
+    public bool HasPieces(PieceColor currentPlayerColor)
     {
+        foreach (var square in _board.Squares)
+        {
+            if (!square.IsEmpty)// check if this square has a piece on it 
+            {
+                if (square.Piece.Color == currentPlayerColor)
+                {
+                    // Debugging
+                    // Console.WriteLine(square.Piece.Color);
+                    return true;
+                }
+            }
+        }
         return false;
     }
-    public bool IsGameOver()
+    public bool IsDraw()
     {
+        if (SumOfMove >= 40)
+        {
+            GameIsDraw = true;
+            Console.WriteLine("Enough, Game is DRAW!");
+            return true;
+        }
+        else
+        {
+            GameIsDraw = false;
+            Console.WriteLine("Game continues, not a draw yet.");
+            return false;
+        }
+    }
+
+    public bool IsGameOver(PieceColor currentPlayerColor)
+    {
+        // when IsDraw true => game is over
+        if (IsDraw())
+        {
+            Console.WriteLine("IsGameOver = Draw");
+            return true;
+        }
+        // when player piece empty => game is over
+        if (!HasPieces(currentPlayerColor))
+        {   
+            Console.WriteLine("IsGameOver = Has Not Pieces");
+            return true;
+        }
+
         return false;
     }
     public bool HasAdditionalMove()
     {
         return false;
     }
-
-
-
 }

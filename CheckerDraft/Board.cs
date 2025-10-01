@@ -61,33 +61,6 @@ public class Board : IBoard
                     _squares[x, y].Piece = new Piece(PieceColor.White, PieceType.Men);
     }
 
-    // -----
-    // ADDITIONES
-    // -----  
-    // public void PrintBoard()
-    // {
-    //     Console.WriteLine("    0     1     2     3     4     5     6     7");
-    //     for (int y = 7; y >= 0; y--)
-    //     {
-    //         Console.Write($" {y + 1} ");
-    //         for (int x = 0; x < 8; x++)
-    //         {
-    //             var sq = _squares[x, y];
-    //             bool dark = (x + y) % 2 == 1;
-    //             Console.BackgroundColor = dark ? ConsoleColor.Black : ConsoleColor.White;
-    //             Console.ForegroundColor = ConsoleColor.White;
-    //             string cell = sq.ToString().PadLeft(2).PadRight(3);
-    //             Console.Write(cell);
-
-    //         }
-    //         Console.ResetColor();
-    //         Console.WriteLine($" {y + 1}");
-
-    //     }
-    //     Console.WriteLine("    0     1     2     3     4     5     6     7");
-    //     Console.ResetColor();
-    // }
-
     public void PrintBoard()
     {
         Console.WriteLine("    0   1   2   3   4   5   6   7");
@@ -112,9 +85,9 @@ public class Board : IBoard
         Console.WriteLine("    0   1   2   3   4   5   6   7");
         Console.ResetColor();
     }
-    public void PrintBoardh()
+    public void PrintBoardCoordinate()
     {
-        Console.WriteLine("    0   1   2   3   4   5   6   7");
+        Console.WriteLine("     0    1    2    3    4    5    6    7");
         for (int y = 7; y >= 0; y--)
         {
             Console.Write($" {y} ");
@@ -134,10 +107,17 @@ public class Board : IBoard
             Console.ResetColor();
             Console.WriteLine($" {y}");
         }
-        Console.WriteLine("    0     1     2     3     4     5     6     7");
+        Console.WriteLine("     0    1    2    3    4    5    6    7");
         Console.ResetColor();
     }
-
+    public bool IsInsideBoard(Position position)
+    {
+        // return x >= 0 && x < 8 && y >= 0 && y < 8;
+        if (position.X >= 0 && position.X < 8 && position.Y >= 0 && position.Y < 8)
+            return true;
+        
+        return false;
+    }
 
 
 }

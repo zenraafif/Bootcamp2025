@@ -67,8 +67,11 @@ class Program
                 if (game.ValidateMove(move))
                 {
                     game.ApplyMove(move);
-                    board.PrintBoard();
-                    game.SwitchTurn();
+                    // if (!game.IsGameOver(game.CurrentPlayer.Color))   // ← cek dulu
+                    // {
+                        board.PrintBoard();
+                        game.SwitchTurn();
+                    // }
                 }
             }
             catch (Exception ex)

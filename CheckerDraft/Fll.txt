@@ -1,3 +1,56 @@
+    public void GetAllPossibleMoves()
+    {
+        // Loop through all squares on the board.
+
+        // Check if the square has a piece of the given player’s color.
+
+        // For each piece, generate its legal moves:
+
+        // Normal moves (diagonal step forward).
+
+        // Capture moves (jump over opponent).
+
+        // If any capture is possible, then only captures are legal (forced capture rule).
+    }
+    public bool IsCurrentPlayerHasValidMoves(PieceColor currentPlayerColor)
+    {
+        // Loop through all squares on the board
+        foreach (var square in _board.Squares)
+        {
+            if (square.IsEmpty) continue;
+
+            var piece = square.Piece!;
+            if (piece.Color != currentPlayerColor) continue;
+
+            // Get all possible moves for this piece
+            var possibleMoves = GetAllPossibleMoves(square);
+
+            // If at least one move is valid, then player still has moves
+            if (possibleMoves.Any())
+            {
+                return true;
+            }
+        }
+
+        // No valid moves found for any piece
+        return false;
+    }
+    public bool IsCurrentPlayerHasValidMovesd(PieceColor color)
+    {
+        foreach (var square in _board.Squares)
+        {
+            // if 
+            // if
+        }
+        return false;
+    }
+
+
+    Get GetAllPossibleMoves and GameOverValidMove;
+
+
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

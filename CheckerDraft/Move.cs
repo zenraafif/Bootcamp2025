@@ -12,26 +12,4 @@ public class Move
         From = from;
         To = to;
     }
-
-    public override string ToString()
-    {
-        string move = $"From: {From}, To: {To} ";
-        if (CapturedPiece != null)
-        {
-            move += $"Captured a Piece {CapturedPiece}";
-        }
-        return move;
-    }
-    // public override string ToString()
-    // {
-    //     string move = $"Move: From {From} -> To {To}";
-    //     if (CapturedPiece != null && CapturedPosition != null)
-    //     {
-    //         move += $" | Captured: {CapturedPiece.Color} {CapturedPiece.Type} at {CapturedPosition}";
-    //     }
-    //     return move;
-    // }
-
-
-        
 }

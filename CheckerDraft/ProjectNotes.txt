@@ -28,3 +28,18 @@ Stack history
 1 2 2 3
 4 5 3 4
 2 3 4 5
+
+
+
+
+
+Bagaimana proses pemilihan teknologi baru sebelum dieksekusi?
+
+Apakah ada standar khusus untuk arsitektur atau design yang mungkin berbeda dengan lainnya?
+Bagaimana pembagian jobdesc?
+Bagaimana seorang developer bisa naik level menjadi senior di sini?
+Apa skill terpenting untuk dipelajari?
+Teknologi apa saja yang paling banyak dipakai di sini?
+
+Bagaimana proses atau alur kolaborasi dengan tim lain?
+Apa tantangan terbesar yang biasanya tim hadapi saat mengembangkan sistem?
