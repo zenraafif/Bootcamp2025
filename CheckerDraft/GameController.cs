@@ -71,9 +71,11 @@ public class GameController
                 // Console.WriteLine($"x= {x}, y= {y}");
 
                 if (pieceX == x && pieceY == y)
+                {
                     // square.Piece.Type = PieceType.King; 
                     (square.Piece as Piece)?.PromoteToKing();
                     return true;
+                }
             }
         }
         else if (square.Piece.Color == PieceColor.White)
@@ -85,8 +87,10 @@ public class GameController
                 int y = TopSquareWhite[i, 1];
 
                 if (pieceX == x && pieceY == y)
+                {   
                     (square.Piece as Piece)?.PromoteToKing();
                     return true;
+                }
             }
         }
 
@@ -253,30 +257,6 @@ public class GameController
         int capturedPieceX = (move.From.X + move.To.X) / 2;
         int capturedPieceY = (move.From.Y + move.To.Y) / 2;
         var capturedSquare = _board.GetSquare(capturedPieceX, capturedPieceY);
-        if (absHorizontalChange == 2 && absVerticalChange == 2)
-        {
-            //captured is the square that should contain the opponent’s piece.
-
-            if (!capturedSquare.IsEmpty)
-            {
-                move.CapturedPiece = capturedSquare.Piece;
-                move.CapturedPosition = capturedSquare.Position;
-                capturedSquare.Piece = null; //remove captured piece from the Board
-            }
-
-            // Double Move
-            if (move.CapturedPiece != null)
-            {
-                if (CanCaptureFrom(move.To))
-                {
-                    Console.WriteLine("Double move available! Continue with the same piece.");
-                    // Option A: force same player to move again
-                    // Option B: loop ApplyMove until no captures left
-                }
-            }
-
-
-        }
 
         _moveHistory.Push(
             (fromSquare,
@@ -297,6 +277,23 @@ public class GameController
             );
         }
 
+                if (absHorizontalChange == 2 && absVerticalChange == 2)
+        {
+            if (!capturedSquare.IsEmpty)
+            {
+                move.CapturedPiece = capturedSquare.Piece;
+                move.CapturedPosition = capturedSquare.Position;
+                capturedSquare.Piece = null; // remove captured piece
+            }
+
+            // Double capture check
+            if (move.CapturedPiece != null && CanCaptureFrom(move.To))
+            {
+                Console.WriteLine("Double move available! Continue with the same piece.");
+                return;
+            }
+        }
+        
         OnMoveApplied?.Invoke(fromSquare, toSquare); // Action
 
         if (IsGameOver(CurrentPlayer.Color))

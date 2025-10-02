@@ -20,10 +20,12 @@ class Program
         // Initialize game controller
         var game = new GameController(board, players);
         // subscribe to event
-        game.OnMoveApplied += (from, to) =>
+        void OnMoveAppliedHandler(ISquare from, ISquare to)
         {
-            Console.WriteLine($"Piece moved from {from.Position} to {to.Position}");
-        };
+            Console.WriteLine("Piece moved from " + from.Position + " to " + to.Position);
+        }
+        game.OnMoveApplied += OnMoveAppliedHandler;
+
 
         game.StartGame();
 
