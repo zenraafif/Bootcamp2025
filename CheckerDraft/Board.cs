@@ -107,9 +107,14 @@ public class Board : IBoard
         // return x >= 0 && x < 8 && y >= 0 && y < 8;
         if (position.X >= 0 && position.X < 8 && position.Y >= 0 && position.Y < 8)
             return true;
-        
+
         return false;
     }
+    public bool IsInside(int x, int y)
+    {
+        return x >= 0 && x < 8 && y >= 0 && y < 8;
+    }
+
 
 
 }

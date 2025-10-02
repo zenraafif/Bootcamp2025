@@ -10,5 +10,6 @@ public interface IBoard
     // -----  
     void PrintBoard(); // PrintBoard accessible via interface IBoard
     bool IsInsideBoard(Position position);        
+    bool IsInside(int x, int y);        
 }
     

@@ -96,6 +96,102 @@ public class GameController
 
         return false;
     }
+    // public void GetAllPossibleMoves(PieceColor currentColor)
+    // {
+    //     // Loop through all squares on the board.
+    //     foreach (var sq in _board.Squares)
+    //     {
+    //         // Check if the square has a piece of the given player’s color.
+    //         if (!sq.IsEmpty && sq.Piece!.Color == currentColor)//CurrentPlayer.Color
+    //         {
+    //             // For each piece, generate its legal moves:
+    //             if (CanCaptureFrom(sq.Position))
+    //             {
+    //                 // Normal moves (diagonal step forward).
+    //                 int dx = move.To.X - move.From.X;
+    //                 int dy = move.To.Y - move.From.Y;
+    //                 int absDx = Math.Abs(dx);
+    //                 int absDy = Math.Abs(dy);
+
+    //                 bool mustCapture = IsCurrentPlayerHasCapture();
+
+
+    //                 // // Normal move
+    //                 if (absDx == 1 && absDy == 1)
+    //                 {
+
+    //                 // Capture moves (jump over opponent).
+
+    //                 }
+    //             // If any capture is possible, then only captures are legal (forced capture rule).
+
+    //         }
+    //     }
+    // }
+
+
+
+    private List<(int x, int y)> GetValidMovesForPiece(ISquare square)
+    {
+        var moves = new List<(int x, int y)>();
+        int x = square.Position.X;
+        int y = square.Position.Y;
+        var piece = square.Piece;
+
+        // Movement direction (Black down, White up)
+        int direction = (piece.Color == PieceColor.Black) ? 1 : -1;
+
+        // Check simple diagonal moves
+        int[,] directions = { { -1, direction }, { 1, direction } };
+
+        for (int i = 0; i < directions.GetLength(0); i++)
+        {
+            int newX = x + directions[i, 0];
+            int newY = y + directions[i, 1];
+
+            if (_board.IsInside(newX, newY))
+            {
+                var target = _board.GetSquare(newX, newY);
+
+                if (target.IsEmpty)
+                {
+                    moves.Add((newX, newY));
+                }
+                else if (target.Piece.Color != piece.Color) // enemy piece
+                {
+                    int jumpX = newX + directions[i, 0];
+                    int jumpY = newY + directions[i, 1];
+
+                    if (_board.IsInside(jumpX, jumpY) && _board.GetSquare(jumpX, jumpY).IsEmpty)
+                    {
+                        moves.Add((jumpX, jumpY)); // capture
+                    }
+                }
+            }
+        }
+
+        return moves;
+    }
+
+    public Dictionary<ISquare, List<(int x, int y)>> GetMovablePieces(PieceColor color)
+    {
+        var result = new Dictionary<ISquare, List<(int x, int y)>>();
+
+        foreach (var square in _board.Squares)
+        {
+            if (square.IsEmpty || square.Piece.Color != color)
+                continue;
+
+            var moves = GetValidMovesForPiece(square);
+            if (moves.Count > 0)
+                result[square] = moves;
+        }
+
+        return result;
+    }
+
+
+
 
     private bool CanCaptureFrom(Position pos)
     {

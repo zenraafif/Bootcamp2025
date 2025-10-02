@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CheckerDraft")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb0c75bd31c954c4216b47163b7fae2c00fef502")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4617407ad4bf3d709f311cf370d38084eced06b1")]
 [assembly: System.Reflection.AssemblyProductAttribute("CheckerDraft")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CheckerDraft")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
