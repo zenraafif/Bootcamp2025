@@ -92,21 +92,6 @@ public class GameController
 
         return false;
     }
-    public bool ShouldPromotes(ISquare square)
-    {
-        if (square.IsEmpty)
-            return false;
-
-        var piece = square.Piece;
-
-        if (piece.Color == PieceColor.Black && square.Position.Y == 7)
-            return true;
-
-        if (piece.Color == PieceColor.White && square.Position.Y == 0)
-            return true;
-
-        return false;
-    }
 
     private bool CanCaptureFrom(Position pos)
     {
@@ -384,10 +369,6 @@ public class GameController
             return true;
         }
 
-        return false;
-    }
-    public bool HasAdditionalMove()
-    {
         return false;
     }
 }

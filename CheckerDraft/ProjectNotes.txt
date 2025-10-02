@@ -1,11 +1,10 @@
 
-game win() + display winner
 
 
 
 
 
-NOT MANDATORY :
+WAIT :
 isGameOver();
 Action OnTurnChanged
 isKing could been captured by Men?
@@ -16,6 +15,7 @@ Append board
 	Redo
 
 DONE : 
+game win() + display winner
 Action OnMoveApplied
 	isDraw() ==> 40 step
 Double move ==> HasAdditionalCapture();
@@ -31,22 +31,3 @@ Stack history
 
 
 
-
-
-
-Apakah ada standar khusus untuk arsitektur atau design yang mungkin berbeda dengan lainnya?
-Bagaimana seorang developer bisa naik level menjadi senior di sini?
-Apa skill terpenting untuk dipelajari?
-Teknologi apa saja yang paling banyak dipakai di sini?
-Apakah tim lebih sering melakukan profiling/performance tuning di C#, atau bottleneck biasanya ada di sisi hardware?
-Bagaimana biasanya tim membedakan apakah bug berasal dari kode C# atau dari hardware/sensor robot, dan tool apa yang membantu dalam debugging lintas layer itu?
-
-
-Bagaimana proses pemilihan dan riset penggunaan teknologi baru sebelum dieksekusi? Terutama jika sudah ada standard yang digunakan.
-Bagaimana pembagian jobdesc pada suatu project?
-Bagaimana debugging dilakukan ketika bug bisa saja muncul di layer software C# tapi asalnya dari hardware?
-Bagaimana proses atau alur kolaborasi dengan tim lain?
-Skill apa saja yang paling penting agar seorang junior engineer bisa berkembang?
-
-
-Apa tantangan terbesar yang biasanya tim hadapi saat mengembangkan sistem?
