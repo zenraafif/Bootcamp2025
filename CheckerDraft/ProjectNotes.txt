@@ -5,7 +5,6 @@
 
 
 WAIT :
-isGameOver();
 Action OnTurnChanged
 isKing could been captured by Men?
 Move to GameController
@@ -15,6 +14,7 @@ Append board
 	Redo
 
 DONE : 
+isGameOver();
 game win() + display winner
 Action OnMoveApplied
 	isDraw() ==> 40 step

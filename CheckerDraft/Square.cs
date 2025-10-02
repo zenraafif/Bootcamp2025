@@ -4,17 +4,22 @@
     {
         public Position Position { get; private set; }
         public IPiece Piece { get; set; }
-        public bool IsEmpty => Piece == null;
+
+        public bool IsEmpty
+        {
+            get
+            {
+                return Piece == null;
+            }
+        }
 
         public Square(Position position, IPiece piece = null)
         {
             Position = position;
             Piece = piece;
         }
+        
 
-        // -----
-        // ADDITIONES
-        //-----  
         public override string ToString()
         {
             if (Piece == null)

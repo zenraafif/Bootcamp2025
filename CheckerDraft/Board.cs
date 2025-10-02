@@ -15,25 +15,20 @@ public class Board : IBoard
         }
     }
 
-    public ISquare GetSquare(int x, int y)
-    {
-        return _squares[x, y];
-    }
+    // public ISquare GetSquare(int x, int y)
+    // {
+    //     return _squares[x, y];
+    // }
 
     public Board()
     {
         for (int y = 0; y < 8; y++)
-
         {
             for (int x = 0; x < 8; x++)
             {
                 _squares[x, y] = new Square(new Position(x, y));
             }
         }
-
-        // -----
-        // ADDITIONES
-        // -----  
         InitializePieces();
     }
     ISquare IBoard.GetSquare(int x, int y)
@@ -43,9 +38,6 @@ public class Board : IBoard
         return _squares[x, y];
     }
 
-    // -----
-    // ADDITIONES
-    // -----  
     private void InitializePieces()
     {
         // place black (top rows)

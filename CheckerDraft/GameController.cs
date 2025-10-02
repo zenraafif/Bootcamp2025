@@ -277,7 +277,8 @@ public class GameController
             );
         }
 
-                if (absHorizontalChange == 2 && absVerticalChange == 2)
+        // CAPTURE
+        if (absHorizontalChange == 2 && absVerticalChange == 2)
         {
             if (!capturedSquare.IsEmpty)
             {
