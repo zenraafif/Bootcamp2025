@@ -219,7 +219,7 @@ public class GameController
                 allMoves.Add((square, m));
         }
 
-        // 🔴 Check if any capture exists
+        // Check if any capture exists
         bool mustCapture = allMoves.Any(m => Math.Abs(m.square.Position.X - m.move.x) == 2);
 
         foreach (var square in _board.Squares)
@@ -229,7 +229,7 @@ public class GameController
 
             var moves = GetValidMovesForPiece(square);
 
-            // ✅ If mustCapture, only keep capture moves
+            // If mustCapture, only keep capture moves
             if (mustCapture)
                 moves = moves.Where(m => Math.Abs(square.Position.X - m.x) == 2).ToList();
 
@@ -383,7 +383,7 @@ public class GameController
                     return false;
             }
 
-            return true; // ✅ allow simple step
+            return true; // allow simple step
         }
 
         // --- Capture move ---
