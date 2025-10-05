@@ -3,6 +3,12 @@
 public class GameController
 {
     public Action<ISquare, ISquare>? OnMoveApplied; // action
+    public event Action<string>? OnGameMessage;
+    public event Action<PieceColor>? OnGameOver;
+    public event Action<PieceColor>? OnWinnerDeclared;
+    public event Action<Move>? OnDoubleCapture;
+
+
     private IBoard _board;
     private List<IPlayer> _players;
     private int _currentTurn;
@@ -36,7 +42,7 @@ public class GameController
     }
     public void StartGame()
     {
-        Console.WriteLine("Game started");
+        // Console.WriteLine("Game started");
         _board.PrintBoard();
     }
     public void SwitchTurn()
@@ -129,6 +135,31 @@ public class GameController
     //     }
     // }
 
+    public List<(Position From, Position Captured, Position To)> GetAllCaptures(PieceColor color)
+    {
+        var captures = new List<(Position, Position, Position)>();
+
+        foreach (var sq in _board.Squares)
+        {
+            if (sq.IsEmpty || sq.Piece!.Color != color)
+                continue;
+
+            var moves = GetValidMovesForPiece(sq);
+            foreach (var m in moves)
+            {
+                int dx = m.x - sq.Position.X;
+                int dy = m.y - sq.Position.Y;
+                if (Math.Abs(dx) == 2 && Math.Abs(dy) == 2)
+                {
+                    int capX = sq.Position.X + dx / 2;
+                    int capY = sq.Position.Y + dy / 2;
+                    captures.Add((sq.Position, new Position(capX, capY), new Position(m.x, m.y)));
+                }
+            }
+        }
+
+        return captures;
+    }
 
 
     private List<(int x, int y)> GetValidMovesForPiece(ISquare square)
@@ -176,6 +207,7 @@ public class GameController
     public Dictionary<ISquare, List<(int x, int y)>> GetMovablePieces(PieceColor color)
     {
         var result = new Dictionary<ISquare, List<(int x, int y)>>();
+        var allMoves = new List<(ISquare square, (int x, int y) move)>();
 
         foreach (var square in _board.Squares)
         {
@@ -183,6 +215,24 @@ public class GameController
                 continue;
 
             var moves = GetValidMovesForPiece(square);
+            foreach (var m in moves)
+                allMoves.Add((square, m));
+        }
+
+        // 🔴 Check if any capture exists
+        bool mustCapture = allMoves.Any(m => Math.Abs(m.square.Position.X - m.move.x) == 2);
+
+        foreach (var square in _board.Squares)
+        {
+            if (square.IsEmpty || square.Piece.Color != color)
+                continue;
+
+            var moves = GetValidMovesForPiece(square);
+
+            // ✅ If mustCapture, only keep capture moves
+            if (mustCapture)
+                moves = moves.Where(m => Math.Abs(square.Position.X - m.x) == 2).ToList();
+
             if (moves.Count > 0)
                 result[square] = moves;
         }
@@ -191,53 +241,95 @@ public class GameController
     }
 
 
+    // private bool CanCaptureFrom(Position pos)
+    // {
+    //     var square = _board.GetSquare(pos.X, pos.Y);
+    //     if (square.IsEmpty) return false;
 
+    //     var piece = square.Piece!;
+    //     int dir = piece.Color == PieceColor.White ? -1 : 1;
 
-    private bool CanCaptureFrom(Position pos)
+    //     // directions for diagonal moves
+    //     int[,] directions = { { 1, dir }, { -1, dir }, { 1, -dir }, { -1, -dir } };
+
+    //     foreach (var d in Enumerable.Range(0, 4))
+    //     {
+    //         int dx = directions[d, 0];
+    //         int dy = directions[d, 1];
+
+    //         int midX = pos.X + dx;
+    //         int midY = pos.Y + dy;
+    //         int toX = pos.X + 2 * dx;
+    //         int toY = pos.Y + 2 * dy;
+
+    //         if (toX < 0 || toX >= 8 || toY < 0 || toY >= 8) continue;
+
+    //         var midSquare = _board.GetSquare(midX, midY);
+    //         var toSquare = _board.GetSquare(toX, toY);
+
+    //         if (!midSquare.IsEmpty && midSquare.Piece!.Color != piece.Color && toSquare.IsEmpty)
+    //             return true; // capture available
+    //     }
+
+    //     return false;
+    // }
+    private bool CanCaptureFrom(Position p)
     {
-        var square = _board.GetSquare(pos.X, pos.Y);
-        if (square.IsEmpty) return false;
+        var sq = _board.GetSquare(p.X, p.Y);
+        if (sq.IsEmpty) return false;
+        var piece = sq.Piece!;
 
-        var piece = square.Piece!;
-        int dir = piece.Color == PieceColor.White ? -1 : 1;
+        int[] dxs = { -2, 2 };
+        int[] dys = { -2, 2 };
 
-        // directions for diagonal moves
-        int[,] directions = { { 1, dir }, { -1, dir }, { 1, -dir }, { -1, -dir } };
+        foreach (var dx in dxs)
+            foreach (var dy in dys)
+            {
+                int tx = p.X + dx;
+                int ty = p.Y + dy;
+                int mx = p.X + dx / 2;
+                int my = p.Y + dy / 2;
 
-        foreach (var d in Enumerable.Range(0, 4))
-        {
-            int dx = directions[d, 0];
-            int dy = directions[d, 1];
+                if (!_board.IsInside(tx, ty)) continue;
 
-            int midX = pos.X + dx;
-            int midY = pos.Y + dy;
-            int toX = pos.X + 2 * dx;
-            int toY = pos.Y + 2 * dy;
+                var landing = _board.GetSquare(tx, ty);
+                var mid = _board.GetSquare(mx, my);
 
-            if (toX < 0 || toX >= 8 || toY < 0 || toY >= 8) continue;
+                if (!landing.IsEmpty) continue;      // landing must be empty
+                if (mid.IsEmpty) continue;           // there must be a piece to jump over
+                if (mid.Piece!.Color == piece.Color) continue; // it must be opponent piece
 
-            var midSquare = _board.GetSquare(midX, midY);
-            var toSquare = _board.GetSquare(toX, toY);
+                // For men (non-king) check forward-only capture (same as ValidateMove)
+                if (piece.Type != PieceType.King)
+                {
+                    if (piece.Color == PieceColor.White && dy != -2) continue;
+                    if (piece.Color == PieceColor.Black && dy != 2) continue;
+                }
 
-            if (!midSquare.IsEmpty && midSquare.Piece!.Color != piece.Color && toSquare.IsEmpty)
-                return true; // capture available
-        }
+                // found a legal capture
+                return true;
+            }
 
         return false;
     }
+
+
 
     private bool IsCurrentPlayerHasCapture()
     {
         foreach (var sq in _board.Squares)
         {
-            if (!sq.IsEmpty && sq.Piece!.Color == CurrentPlayer.Color)
-            {
-                if (CanCaptureFrom(sq.Position))
-                    return true;
-            }
+            if (sq.IsEmpty || sq.Piece!.Color != CurrentPlayer.Color)
+                continue;
+
+            var moves = GetValidMovesForPiece(sq);
+            if (moves.Any(m => Math.Abs(m.x - sq.Position.X) == 2 && Math.Abs(m.y - sq.Position.Y) == 2))
+                return true;
         }
         return false;
     }
+
+
 
 
     public bool ValidateMove(Move move)
@@ -246,17 +338,25 @@ public class GameController
         var toSquare = _board.GetSquare(move.To.X, move.To.Y);
 
         if (fromSquare.IsEmpty)
-            throw new InvalidOperationException("No piece at starting position!");
+        {
+            Console.WriteLine("AAAAAAAAAAA");
+            return false; // No piece at starting position
+        }
 
         var piece = fromSquare.Piece!;
-        if (piece.Color != CurrentPlayer.Color)
-            throw new InvalidOperationException("You can only move your own pieces!");
-        if (!toSquare.IsEmpty)
-            throw new InvalidOperationException("Target square is not empty!");
 
-                                                // 4 5 3 4      1 2 2 3     2 3 4 5
-        // int dx = move.To.X - move.From.X; ===> 3 - 4 = -1    2 - 1 = 1   2 - 4 = 2
-        // int dy = move.To.Y - move.From.Y; ===> 4 - 5 = -1    3 - 2 = 1   5 - 3 = 2
+        if (piece.Color != CurrentPlayer.Color)
+        {
+            Console.WriteLine("BBBBBBBBBB");
+            return false; // Can't move opponent's piece
+        }
+
+        if (!toSquare.IsEmpty)
+        {
+            Console.WriteLine("CCCCCCCCCC");
+            return false; // Target not empty
+        }
+
         int dx = move.To.X - move.From.X;
         int dy = move.To.Y - move.From.Y;
         int absDx = Math.Abs(dx);
@@ -264,30 +364,29 @@ public class GameController
 
         bool mustCapture = IsCurrentPlayerHasCapture();
 
-        // // Normal move
+        // --- Normal move ---
         if (absDx == 1 && absDy == 1)
         {
             if (mustCapture)
-                throw new InvalidOperationException("You must capture if possible!");
+            {
+                Console.WriteLine("DDDDDDDD");
+                return false; // must capture instead
+            }
 
-            // Forward direction for Men
+            // Forward-only restriction for Men
             if (piece.Type != PieceType.King)
             {
-                // White color move forward with (-1)
                 if (piece.Color == PieceColor.White && dy != -1)
-                {
-                    throw new InvalidOperationException("Men only move forward - White");
-                }
-                // Black color mover forward with (1)
+                    return false;
+
                 if (piece.Color == PieceColor.Black && dy != 1)
-                {
-                    throw new InvalidOperationException("Men only move forward - Black");
-                }
+                    return false;
             }
-            return true;
+
+            return true; // ✅ allow simple step
         }
 
-        // Capture move
+        // --- Capture move ---
         if (absDx == 2 && absDy == 2)
         {
             int midX = (move.From.X + move.To.X) / 2;
@@ -296,23 +395,21 @@ public class GameController
 
             if (!midSquare.IsEmpty && midSquare.Piece!.Color != piece.Color)
             {
-                // Check forward capture for man (not king)
                 if (piece.Type != PieceType.King)
                 {
                     if (piece.Color == PieceColor.White && dy != -2)
-                        throw new InvalidOperationException("White men can only capture forward!");
-                    if (piece.Color == PieceColor.Black && dy != 2)
-                        throw new InvalidOperationException("Black men can only capture forward!");
-                }
+                        return false;
 
+                    if (piece.Color == PieceColor.Black && dy != 2)
+                        return false;
+                }
                 return true;
             }
-
-            throw new InvalidOperationException("Invalid capture: no opponent piece to jump over!");
+            return false; // no opponent to capture
         }
-        //--------------------------
 
-        throw new InvalidOperationException("Invalid move!");
+        // --- Otherwise invalid ---
+        return false;
     }
 
     public void ApplyMove(Move move)
@@ -363,15 +460,15 @@ public class GameController
 
         HasPieces(CurrentPlayer.Color);
         // Debugging MOVE HISTORY
-        Console.WriteLine("Move History");
-        foreach (var moved in _moveHistory)
-        {
-            Console.WriteLine(
-                $"From ({moved.From.Position.X},{moved.From.Position.Y}) -> " +
-                $"To ({moved.To.Position.X},{moved.To.Position.Y}) " +
-                $"{(moved.Captured != null ? $"Captured : {moved.Captured.Color} {moved.Captured.Type} at {moved.CapturedPosition}" : "")}"
-            );
-        }
+        // Console.WriteLine("Move History");
+        // foreach (var moved in _moveHistory)
+        // {
+        //     Console.WriteLine(
+        //         $"From ({moved.From.Position.X},{moved.From.Position.Y}) -> " +
+        //         $"To ({moved.To.Position.X},{moved.To.Position.Y}) " +
+        //         $"{(moved.Captured != null ? $"Captured : {moved.Captured.Color} {moved.Captured.Type} at {moved.CapturedPosition}" : "")}"
+        //     );
+        // }
 
         // CAPTURE
         if (absHorizontalChange == 2 && absVerticalChange == 2)
@@ -386,25 +483,23 @@ public class GameController
             // Double capture check
             if (move.CapturedPiece != null && CanCaptureFrom(move.To))
             {
-                Console.WriteLine("Double move available! Continue with the same piece.");
+                // OnDoubleCapture?.Invoke(move); // notify front-end
+                OnGameMessage?.Invoke("Double move available! Continue with the same piece.");
                 return;
             }
+
         }
         
         OnMoveApplied?.Invoke(fromSquare, toSquare); // Action
 
         if (IsGameOver(CurrentPlayer.Color))
         {
-            Console.WriteLine("GAME OVER");
+            OnGameOver?.Invoke(CurrentPlayer.Color);
 
             if (GameIsDraw)
-            {
-                Console.WriteLine("Result: DRAW!");
-            }
+                OnGameMessage?.Invoke("Result: DRAW!");
             else
-            {
-                Console.WriteLine($"Winner: {GetOpponent(CurrentPlayer.Color)}");
-            }
+                OnWinnerDeclared?.Invoke(GetOpponent(CurrentPlayer.Color));
 
             return;
         }
@@ -453,13 +548,13 @@ public class GameController
         // when IsDraw true => game is over
         if (IsDraw())
         {
-            Console.WriteLine("IsGameOver = Draw");
+            // Console.WriteLine("IsGameOver = Draw");
             return true;
         }
         // when player piece empty => game is over
         if (!HasPieces(currentPlayerColor))
         {   
-            Console.WriteLine("IsGameOver = Has Not Pieces");
+            // Console.WriteLine("IsGameOver = Has Not Pieces");
             return true;
         }
 

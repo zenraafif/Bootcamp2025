@@ -8,23 +8,23 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\microsoft\\.nuget\\packages\\": {},
+    "C:\\Users\\Zenra Afif\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\microsoft\\Documents\\CSharp\\Bootcamp2025\\CheckerDraft\\CheckerDraft.csproj",
+      "projectUniqueName": "C:\\Users\\Zenra Afif\\Documents\\CSharp\\Bootcamp2025\\Bootcamp2025\\CheckerDraft\\CheckerDraft.csproj",
       "projectName": "CheckerDraft",
-      "projectPath": "C:\\Users\\microsoft\\Documents\\CSharp\\Bootcamp2025\\CheckerDraft\\CheckerDraft.csproj",
-      "packagesPath": "C:\\Users\\microsoft\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\microsoft\\Documents\\CSharp\\Bootcamp2025\\CheckerDraft\\obj\\",
+      "projectPath": "C:\\Users\\Zenra Afif\\Documents\\CSharp\\Bootcamp2025\\Bootcamp2025\\CheckerDraft\\CheckerDraft.csproj",
+      "packagesPath": "C:\\Users\\Zenra Afif\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Zenra Afif\\Documents\\CSharp\\Bootcamp2025\\Bootcamp2025\\CheckerDraft\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\microsoft\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Zenra Afif\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -72,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
