@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qPMtjW6Bhks=",
+  "dgSpecHash": "hVigK8Tlz24=",
   "success": true,
-  "projectFilePath": "C:\\Programming\\CalculatorAppTesting\\Calculator.Tests\\Calculator.Tests.csproj",
+  "projectFilePath": "C:\\Users\\microsoft\\Documents\\Bootcamp2025\\CalculatorAppTesting\\Calculator.Tests\\Calculator.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\microsoft\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\microsoft\\.nuget\\packages\\microsoft.applicationinsights\\2.23.0\\microsoft.applicationinsights.2.23.0.nupkg.sha512",

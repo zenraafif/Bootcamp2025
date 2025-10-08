@@ -1,0 +1,8 @@
+C:\Users\microsoft\Documents\Bootcamp2025\UserSolution\UserApi.Tests\bin\Debug\net9.0\.msCoverageSourceRootsMapping_UserApi.Tests
+C:\Users\microsoft\Documents\Bootcamp2025\UserSolution\UserApi.Tests\bin\Debug\net9.0\CoverletSourceRootsMapping_UserApi.Tests
+C:\Users\microsoft\Documents\Bootcamp2025\UserSolution\UserApi.Tests\obj\Debug\net9.0\UserApi.Tests.csproj.AssemblyReference.cache
+C:\Users\microsoft\Documents\Bootcamp2025\UserSolution\UserApi.Tests\obj\Debug\net9.0\UserApi.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\microsoft\Documents\Bootcamp2025\UserSolution\UserApi.Tests\obj\Debug\net9.0\UserApi.Tests.AssemblyInfoInputs.cache
+C:\Users\microsoft\Documents\Bootcamp2025\UserSolution\UserApi.Tests\obj\Debug\net9.0\UserApi.Tests.AssemblyInfo.cs
+C:\Users\microsoft\Documents\Bootcamp2025\UserSolution\UserApi.Tests\obj\Debug\net9.0\UserApi.Tests.csproj.CoreCompileInputs.cache
+C:\Users\microsoft\Documents\Bootcamp2025\UserSolution\UserApi.Tests\obj\Debug\net9.0\UserApi.Tests.sourcelink.json

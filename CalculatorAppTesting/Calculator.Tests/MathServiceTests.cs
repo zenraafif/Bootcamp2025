@@ -17,13 +17,54 @@ namespace Calculator.Tests
         [Test]//Menandai satu test method.
         public void Add_WhenCalled_ReturnsSumOfArguments()
         {
+            var svc = new MathService();
             var result = _mathService.Add(2, 3);
-            Assert.That(result, Is.EqualTo(99));//Membandingkan nilai hasil dengan ekspektasi.
-            Assert.Throws<DivideByZeroException>(() => svc.Divide(1, 0)); //Mengecek apakah method melempar exception.
-            Assert.IsTrue(result > 0); //Mengecek apakah kondisi benar.
+            Assert.That(result, Is.EqualTo(5));//Membandingkan nilai hasil dengan ekspektasi.
+            // Assert.Throws<DivideByZeroException>(() => svc.Divide(1, 0)); //Mengecek apakah method melempar exception.
+            // Assert.IsTrue(result > 0); //Mengecek apakah kondisi benar.
         }
-    }
+
+        [Test]
+        public void Subtract_WhenCalled_ReturnsDifferenceOfArguments()
+        {
+            // Arrange
+            var result = _mathService.Subtract(10, 4);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(6));
+        }
+
+        [Test]
+        public void Multiply_WhenCalled_ReturnsProductOfArguments()
+        {
+            // Arrange
+            var result = _mathService.Multiply(3, 4);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(12));
+        }
+
+        [Test]
+        public void Divide_WhenCalled_ReturnsQuotient()
+        {
+            // Arrange
+            var result = _mathService.Divide(10, 2);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(5));
+        }
+
+        [Test]
+        public void Divide_ByZero_ThrowsException()
+        {
+            // Assert + Act
+            Assert.Throws<DivideByZeroException>(() => _mathService.Divide(5, 0));
+        }
     
+    }
+
+    
+   
 }
 
 /* 
