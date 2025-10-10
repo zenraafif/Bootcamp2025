@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\microsoft\\Documents\\SyncronizedGithub\\Bootcamp2025\\TodoApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{317D9C95-A91E-48CD-BB92-F8A75C583D7D}|TodoApi\\TodoApi.csproj|c:\\users\\microsoft\\documents\\syncronizedgithub\\bootcamp2025\\todoapi\\todoapi\\controllers\\todoitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{317D9C95-A91E-48CD-BB92-F8A75C583D7D}|TodoApi\\TodoApi.csproj|solutionrelative:todoapi\\controllers\\todoitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{317D9C95-A91E-48CD-BB92-F8A75C583D7D}|TodoApi\\TodoApi.csproj|c:\\users\\microsoft\\documents\\syncronizedgithub\\bootcamp2025\\todoapi\\todoapi\\todoapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{317D9C95-A91E-48CD-BB92-F8A75C583D7D}|TodoApi\\TodoApi.csproj|solutionrelative:todoapi\\todoapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{317D9C95-A91E-48CD-BB92-F8A75C583D7D}|TodoApi\\TodoApi.csproj|c:\\users\\microsoft\\documents\\syncronizedgithub\\bootcamp2025\\todoapi\\todoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{317D9C95-A91E-48CD-BB92-F8A75C583D7D}|TodoApi\\TodoApi.csproj|solutionrelative:todoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{317D9C95-A91E-48CD-BB92-F8A75C583D7D}|TodoApi\\TodoApi.csproj|c:\\users\\microsoft\\documents\\syncronizedgithub\\bootcamp2025\\todoapi\\todoapi\\models\\todocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{317D9C95-A91E-48CD-BB92-F8A75C583D7D}|TodoApi\\TodoApi.csproj|solutionrelative:todoapi\\models\\todocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TodoItemsController.cs",
+              "DocumentMoniker": "C:\\Users\\microsoft\\Documents\\SyncronizedGithub\\Bootcamp2025\\TodoApi\\TodoApi\\Controllers\\TodoItemsController.cs",
+              "RelativeDocumentMoniker": "TodoApi\\Controllers\\TodoItemsController.cs",
+              "ToolTip": "C:\\Users\\microsoft\\Documents\\SyncronizedGithub\\Bootcamp2025\\TodoApi\\TodoApi\\Controllers\\TodoItemsController.cs",
+              "RelativeToolTip": "TodoApi\\Controllers\\TodoItemsController.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAApwGgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T04:19:38.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TodoApi.http",
+              "DocumentMoniker": "C:\\Users\\microsoft\\Documents\\SyncronizedGithub\\Bootcamp2025\\TodoApi\\TodoApi\\TodoApi.http",
+              "RelativeDocumentMoniker": "TodoApi\\TodoApi.http",
+              "ToolTip": "C:\\Users\\microsoft\\Documents\\SyncronizedGithub\\Bootcamp2025\\TodoApi\\TodoApi\\TodoApi.http",
+              "RelativeToolTip": "TodoApi\\TodoApi.http",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwBkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-10-10T04:11:58.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\microsoft\\Documents\\SyncronizedGithub\\Bootcamp2025\\TodoApi\\TodoApi\\Program.cs",
+              "RelativeDocumentMoniker": "TodoApi\\Program.cs",
+              "ToolTip": "C:\\Users\\microsoft\\Documents\\SyncronizedGithub\\Bootcamp2025\\TodoApi\\TodoApi\\Program.cs",
+              "RelativeToolTip": "TodoApi\\Program.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T03:58:24.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TodoContext.cs",
+              "DocumentMoniker": "C:\\Users\\microsoft\\Documents\\SyncronizedGithub\\Bootcamp2025\\TodoApi\\TodoApi\\Models\\TodoContext.cs",
+              "RelativeDocumentMoniker": "TodoApi\\Models\\TodoContext.cs",
+              "ToolTip": "C:\\Users\\microsoft\\Documents\\SyncronizedGithub\\Bootcamp2025\\TodoApi\\TodoApi\\Models\\TodoContext.cs",
+              "RelativeToolTip": "TodoApi\\Models\\TodoContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAsAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T03:55:05.317Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
