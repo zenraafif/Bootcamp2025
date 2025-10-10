@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Logging.AddConsole();
 
 // USE Memory database
 //builder.Services.AddDbContext<TodoContext>(opt =>
@@ -32,14 +33,6 @@ builder.Services.AddSwaggerGen(c =>
 
 
 var app = builder.Build();
-
-//Swagger
-app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo API v1");
-    c.RoutePrefix = string.Empty; // optional, opens Swagger at root "/"
-});
 
 
 // Configure the HTTP request pipeline.
